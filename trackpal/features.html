@@ -1,0 +1,1863 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.4" />
+<title>trackpal.features API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>trackpal.features</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import pandas as pd
+from rdp import rdp
+from sklearn.cluster import DBSCAN
+from sklearn.metrics import pairwise_distances
+from scipy.spatial.distance import squareform
+
+from . import msd, utils, velocity
+
+EPS = 10e-12
+
+
+class Features:
+    def __init__(self, coords, frame):
+        self.coords = coords
+        self.frame = frame
+
+        self._lookup = {}
+        for klass in TrajectoryFeature.__subclasses__():
+            self._lookup[klass.name] = klass
+
+    def get(self, name, **kwargs):
+        return self._lookup[name](coords=self.coords, frame=self.frame)
+
+    @staticmethod
+    def list():
+        for klass in sorted(TrajectoryFeature.__subclasses__(), key=lambda k: k.name):
+            print(klass.name)
+            print(klass.compute.__doc__)
+            print()
+
+
+class TrajectoryFeature:
+    def __init__(self, coords, frame):
+        self.coords = coords
+        self.frame = frame
+
+
+class MSDParabola(TrajectoryFeature):
+    name = &#34;msd_parabola&#34;
+
+    def compute(self, trj, clip=0.9, min_trj_len=3):
+        tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
+        d, v2, r2 = 0, 0, 0
+        if len(tau) &gt; min_trj_len:
+            d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
+
+        return pd.Series(
+            {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
+        )
+
+
+class VACstats(TrajectoryFeature):
+    name = &#34;vac_stats&#34;
+
+    def compute(self, trj, min_trj_len=3):
+        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+        tau, vac_vals = velocity.velocity_autocorr_pre_track(
+            displacements, self.coords, self.frame
+        )
+
+        if len(tau) &gt; min_trj_len:
+            return pd.Series(
+                {
+                    f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
+                    f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
+                    f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
+                    f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
+                }
+            )
+        else:
+            return pd.Series(
+                {
+                    f&#34;{self.name}_mean&#34;: 0,
+                    f&#34;{self.name}_std&#34;: 0,
+                    f&#34;{self.name}_min&#34;: 0,
+                    f&#34;{self.name}_max&#34;: 0,
+                }
+            )
+
+
+class SpeedStats(TrajectoryFeature):
+    name = &#34;speed&#34;
+
+    def compute(self, trj, min_trj_len=2):
+
+        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+
+        speeds = (
+            np.linalg.norm(displacements[self.coords], axis=1)
+            / trj[self.frame].diff().dropna()
+        )
+
+        if len(speeds) &gt;= min_trj_len:
+            speed_std = speeds.std()
+        else:
+            speed_std = -1
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: speeds.mean(),
+                f&#34;{self.name}_std&#34;: speed_std,
+                f&#34;{self.name}_min&#34;: speeds.min(),
+                f&#34;{self.name}_max&#34;: speeds.max(),
+            }
+        )
+
+
+class ConfinementRatio(TrajectoryFeature):
+    name = &#34;confinement_ratio&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
+                )
+                / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
+            }
+        )
+
+
+class MeanStraightLineSpeed(TrajectoryFeature):
+    name = &#34;mean_straight_line_speed&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
+                )
+                / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
+            }
+        )
+
+
+class EllipseFit(TrajectoryFeature):
+    name = &#34;gyration_tensor&#34;
+
+    def compute(self, trj):
+        p = trj[self.coords].values
+        pc = p - p.mean(0)
+
+        cov = np.cov(pc.T)
+        evals, evecs = np.linalg.eig(cov)
+
+        sort_indices = np.argsort(evals)
+
+        l1 = np.sqrt(evals[sort_indices[0]])
+        l2 = np.sqrt(evals[sort_indices[1]])
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_minor_axis_length&#34;: l1,
+                f&#34;{self.name}_major_axis_length&#34;: l2,
+                f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
+                f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
+                f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
+            }
+        )
+
+
+class TrackDuration(TrajectoryFeature):
+    name = &#34;track_duration&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
+        )
+
+
+class TrackLength(TrajectoryFeature):
+    name = &#34;track_length&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj[self.coords].diff().dropna(), axis=1
+                ).sum()
+            }
+        )
+
+
+class VelocityAverage(TrajectoryFeature):
+    name = &#34;velocity_average&#34;
+
+    def compute(self, trj):
+        tl = TrackLength(self.coords, self.frame).compute
+        td = TrackDuration(self.coords, self.frame).compute
+        return pd.Series(
+            {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
+        )
+
+
+class TrackDiameter(TrajectoryFeature):
+    name = &#34;track_diameter_stats&#34;
+
+    def compute(self, trj):
+        pw = pairwise_distances(trj[self.coords].values)
+        sf = squareform(pw, checks=False)
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: sf.mean(),
+                f&#34;{self.name}_max&#34;: sf.max(),
+                f&#34;{self.name}_std&#34;: sf.std(),
+            }
+        )
+
+
+def angles_from_displacements(disp_xy):
+    a = []
+    for i in range(len(disp_xy) - 1):
+        v0 = disp_xy[i, :]
+        v1 = disp_xy[i + 1, :]
+        c = (v0 @ v1) / (np.linalg.norm(v0) * np.linalg.norm(v1) + EPS)
+        ang = np.arccos(np.clip(c, -1, 1))
+
+        a.append(ang)
+    return a
+
+
+class RDP_simplification(TrajectoryFeature):
+    name = &#34;rdp_simplification&#34;
+
+    def compute(self, trj, min_trj_len=3, eps=1):
+        trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
+        displ_xy = np.diff(trj_rdp, axis=0)
+        ang = angles_from_displacements(displ_xy)
+
+        if len(ang) &gt; min_trj_len:
+            m = np.mean(ang)
+            s = np.std(ang)
+        else:
+            m, s = 0, 0
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
+                f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
+                f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
+            }
+        )
+
+
+class DirectionalChange(TrajectoryFeature):
+    name = &#34;directional_change_stats&#34;
+
+    def compute(self, trj):
+        disp_xy = trj[self.coords].diff().dropna().values
+
+        a = angles_from_displacements(disp_xy)
+
+        if len(a) &gt; 1:
+            p1 = np.percentile(a, 25)
+            p2 = np.percentile(a, 50)
+            p3 = np.percentile(a, 75)
+        else:
+            p1 = 0
+            p2 = 0
+            p3 = 0
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: np.mean(a),
+                f&#34;{self.name}_std&#34;: np.std(a),
+                f&#34;{self.name}_25_percentile&#34;: p1,
+                f&#34;{self.name}_median&#34;: p2,
+                f&#34;{self.name}_75_percentile&#34;: p3,
+            }
+        )
+
+
+class DirectionalChangeCount(TrajectoryFeature):
+    name = &#34;directional_change_count&#34;
+
+    def compute(self, trj):
+        disp_xy = trj[self.coords].diff().dropna().values
+
+        a = angles_from_displacements(disp_xy)
+
+        res = pd.Series(
+            {
+                f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
+                / len(a)
+                for d in [20, 45, 90]
+            }
+        )
+        return res
+
+
+class PartitionFeature(TrajectoryFeature):
+    name = &#34;moving_tracklet&#34;
+
+    def compute(self, trj, eps=6, t_scale=1.0):
+
+        p = trj[self.coords].values
+        t = trj[self.frame].values
+        dt = np.diff(t)
+
+        labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
+
+        from skimage.measure import label
+        from scipy.ndimage.morphology import binary_dilation
+        from skimage.morphology import remove_small_objects
+
+        sub_track_indecies = []
+        unique_labels = set(labels)
+        for u in unique_labels:
+            if u &gt; 0:
+                sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+        sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
+        sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
+        sub_track_center_time = [t[c] for c in sub_track_center_idx]
+
+        if len(unique_labels) &gt; 2:
+            between_times = np.diff(sub_track_center_time)
+            between_dists = np.linalg.norm(
+                np.diff(sub_track_center_pos, axis=0), axis=1
+            )
+
+        else:
+            between_times = 0
+            between_dists = 0
+
+        res = {
+            f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
+            f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
+            f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
+            / dt.sum(),
+            f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
+            f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
+            f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
+            f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
+        }
+
+        labels = labels == 0
+        labels = remove_small_objects(labels, 3)
+        labels = label(labels)
+
+        sub_track_indecies = []
+        unique_labels = set(labels)
+        for u in unique_labels:
+            if u &gt; 0:
+                sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+        sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
+        sub_track_time = [t[sti] for sti in sub_track_indecies]
+
+        sub_trajectoris = [
+            pd.DataFrame(
+                {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
+            )
+            for p, t in zip(sub_track_pos, sub_track_time)
+        ]
+
+        sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
+
+        if len(sub_trajectoris) == 0:
+            sub_trajectoris = [trj]
+
+        SS = SpeedStats(self.coords, self.frame)
+        speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
+        for key, vals in speed_vals.iterrows():
+            res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+        ELF = EllipseFit(self.coords, self.frame)
+        elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
+
+        for key, vals in elf_vals.iterrows():
+            res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+        # Directonal change
+        dc_vals = np.array(
+            [
+                np.mean(
+                    angles_from_displacements(st[self.coords].diff().dropna().values)
+                )
+                for st in sub_trajectoris
+            ]
+        )
+
+        res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
+
+        return pd.Series(res)
+
+
+def partition_dbscann(p, t, eps, t_scale=1.0):
+    X = np.c_[p, t * t_scale]
+    clustering = DBSCAN(eps).fit(X)
+    labels = clustering.labels_
+
+    return labels
+
+
+# helper function for visualizaiton
+def partition_get_moving_part(trj, eps, t_scale, coords, frame):
+    p = trj[coords].values
+    t = trj[frame].values
+    dt = np.diff(t)
+
+    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
+
+    from skimage.measure import label
+    from scipy.ndimage.morphology import binary_dilation
+    from skimage.morphology import remove_small_objects
+
+    labels = labels == 0
+    labels = remove_small_objects(labels, 3)
+
+    new_trj = trj[labels]
+    new_trj[frame] = list(range(len(new_trj)))
+
+    return new_trj[coords + [frame]]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="trackpal.features.angles_from_displacements"><code class="name flex">
+<span>def <span class="ident">angles_from_displacements</span></span>(<span>disp_xy)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def angles_from_displacements(disp_xy):
+    a = []
+    for i in range(len(disp_xy) - 1):
+        v0 = disp_xy[i, :]
+        v1 = disp_xy[i + 1, :]
+        c = (v0 @ v1) / (np.linalg.norm(v0) * np.linalg.norm(v1) + EPS)
+        ang = np.arccos(np.clip(c, -1, 1))
+
+        a.append(ang)
+    return a</code></pre>
+</details>
+</dd>
+<dt id="trackpal.features.partition_dbscann"><code class="name flex">
+<span>def <span class="ident">partition_dbscann</span></span>(<span>p, t, eps, t_scale=1.0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def partition_dbscann(p, t, eps, t_scale=1.0):
+    X = np.c_[p, t * t_scale]
+    clustering = DBSCAN(eps).fit(X)
+    labels = clustering.labels_
+
+    return labels</code></pre>
+</details>
+</dd>
+<dt id="trackpal.features.partition_get_moving_part"><code class="name flex">
+<span>def <span class="ident">partition_get_moving_part</span></span>(<span>trj, eps, t_scale, coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def partition_get_moving_part(trj, eps, t_scale, coords, frame):
+    p = trj[coords].values
+    t = trj[frame].values
+    dt = np.diff(t)
+
+    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
+
+    from skimage.measure import label
+    from scipy.ndimage.morphology import binary_dilation
+    from skimage.morphology import remove_small_objects
+
+    labels = labels == 0
+    labels = remove_small_objects(labels, 3)
+
+    new_trj = trj[labels]
+    new_trj[frame] = list(range(len(new_trj)))
+
+    return new_trj[coords + [frame]]</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="trackpal.features.ConfinementRatio"><code class="flex name class">
+<span>class <span class="ident">ConfinementRatio</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ConfinementRatio(TrajectoryFeature):
+    name = &#34;confinement_ratio&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
+                )
+                / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.ConfinementRatio.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.ConfinementRatio.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    return pd.Series(
+        {
+            f&#34;{self.name}&#34;: np.linalg.norm(
+                trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
+            )
+            / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.DirectionalChange"><code class="flex name class">
+<span>class <span class="ident">DirectionalChange</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DirectionalChange(TrajectoryFeature):
+    name = &#34;directional_change_stats&#34;
+
+    def compute(self, trj):
+        disp_xy = trj[self.coords].diff().dropna().values
+
+        a = angles_from_displacements(disp_xy)
+
+        if len(a) &gt; 1:
+            p1 = np.percentile(a, 25)
+            p2 = np.percentile(a, 50)
+            p3 = np.percentile(a, 75)
+        else:
+            p1 = 0
+            p2 = 0
+            p3 = 0
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: np.mean(a),
+                f&#34;{self.name}_std&#34;: np.std(a),
+                f&#34;{self.name}_25_percentile&#34;: p1,
+                f&#34;{self.name}_median&#34;: p2,
+                f&#34;{self.name}_75_percentile&#34;: p3,
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.DirectionalChange.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.DirectionalChange.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    disp_xy = trj[self.coords].diff().dropna().values
+
+    a = angles_from_displacements(disp_xy)
+
+    if len(a) &gt; 1:
+        p1 = np.percentile(a, 25)
+        p2 = np.percentile(a, 50)
+        p3 = np.percentile(a, 75)
+    else:
+        p1 = 0
+        p2 = 0
+        p3 = 0
+
+    return pd.Series(
+        {
+            f&#34;{self.name}_mean&#34;: np.mean(a),
+            f&#34;{self.name}_std&#34;: np.std(a),
+            f&#34;{self.name}_25_percentile&#34;: p1,
+            f&#34;{self.name}_median&#34;: p2,
+            f&#34;{self.name}_75_percentile&#34;: p3,
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.DirectionalChangeCount"><code class="flex name class">
+<span>class <span class="ident">DirectionalChangeCount</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DirectionalChangeCount(TrajectoryFeature):
+    name = &#34;directional_change_count&#34;
+
+    def compute(self, trj):
+        disp_xy = trj[self.coords].diff().dropna().values
+
+        a = angles_from_displacements(disp_xy)
+
+        res = pd.Series(
+            {
+                f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
+                / len(a)
+                for d in [20, 45, 90]
+            }
+        )
+        return res</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.DirectionalChangeCount.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.DirectionalChangeCount.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    disp_xy = trj[self.coords].diff().dropna().values
+
+    a = angles_from_displacements(disp_xy)
+
+    res = pd.Series(
+        {
+            f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
+            / len(a)
+            for d in [20, 45, 90]
+        }
+    )
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.EllipseFit"><code class="flex name class">
+<span>class <span class="ident">EllipseFit</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EllipseFit(TrajectoryFeature):
+    name = &#34;gyration_tensor&#34;
+
+    def compute(self, trj):
+        p = trj[self.coords].values
+        pc = p - p.mean(0)
+
+        cov = np.cov(pc.T)
+        evals, evecs = np.linalg.eig(cov)
+
+        sort_indices = np.argsort(evals)
+
+        l1 = np.sqrt(evals[sort_indices[0]])
+        l2 = np.sqrt(evals[sort_indices[1]])
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_minor_axis_length&#34;: l1,
+                f&#34;{self.name}_major_axis_length&#34;: l2,
+                f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
+                f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
+                f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.EllipseFit.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.EllipseFit.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    p = trj[self.coords].values
+    pc = p - p.mean(0)
+
+    cov = np.cov(pc.T)
+    evals, evecs = np.linalg.eig(cov)
+
+    sort_indices = np.argsort(evals)
+
+    l1 = np.sqrt(evals[sort_indices[0]])
+    l2 = np.sqrt(evals[sort_indices[1]])
+
+    return pd.Series(
+        {
+            f&#34;{self.name}_minor_axis_length&#34;: l1,
+            f&#34;{self.name}_major_axis_length&#34;: l2,
+            f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
+            f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
+            f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.Features"><code class="flex name class">
+<span>class <span class="ident">Features</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Features:
+    def __init__(self, coords, frame):
+        self.coords = coords
+        self.frame = frame
+
+        self._lookup = {}
+        for klass in TrajectoryFeature.__subclasses__():
+            self._lookup[klass.name] = klass
+
+    def get(self, name, **kwargs):
+        return self._lookup[name](coords=self.coords, frame=self.frame)
+
+    @staticmethod
+    def list():
+        for klass in sorted(TrajectoryFeature.__subclasses__(), key=lambda k: k.name):
+            print(klass.name)
+            print(klass.compute.__doc__)
+            print()</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="trackpal.features.Features.list"><code class="name flex">
+<span>def <span class="ident">list</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def list():
+    for klass in sorted(TrajectoryFeature.__subclasses__(), key=lambda k: k.name):
+        print(klass.name)
+        print(klass.compute.__doc__)
+        print()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.Features.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, name, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self, name, **kwargs):
+    return self._lookup[name](coords=self.coords, frame=self.frame)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.MSDParabola"><code class="flex name class">
+<span>class <span class="ident">MSDParabola</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MSDParabola(TrajectoryFeature):
+    name = &#34;msd_parabola&#34;
+
+    def compute(self, trj, clip=0.9, min_trj_len=3):
+        tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
+        d, v2, r2 = 0, 0, 0
+        if len(tau) &gt; min_trj_len:
+            d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
+
+        return pd.Series(
+            {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.MSDParabola.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.MSDParabola.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj, clip=0.9, min_trj_len=3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj, clip=0.9, min_trj_len=3):
+    tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
+    d, v2, r2 = 0, 0, 0
+    if len(tau) &gt; min_trj_len:
+        d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
+
+    return pd.Series(
+        {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.MeanStraightLineSpeed"><code class="flex name class">
+<span>class <span class="ident">MeanStraightLineSpeed</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MeanStraightLineSpeed(TrajectoryFeature):
+    name = &#34;mean_straight_line_speed&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
+                )
+                / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.MeanStraightLineSpeed.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.MeanStraightLineSpeed.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    return pd.Series(
+        {
+            f&#34;{self.name}&#34;: np.linalg.norm(
+                trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
+            )
+            / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.PartitionFeature"><code class="flex name class">
+<span>class <span class="ident">PartitionFeature</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PartitionFeature(TrajectoryFeature):
+    name = &#34;moving_tracklet&#34;
+
+    def compute(self, trj, eps=6, t_scale=1.0):
+
+        p = trj[self.coords].values
+        t = trj[self.frame].values
+        dt = np.diff(t)
+
+        labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
+
+        from skimage.measure import label
+        from scipy.ndimage.morphology import binary_dilation
+        from skimage.morphology import remove_small_objects
+
+        sub_track_indecies = []
+        unique_labels = set(labels)
+        for u in unique_labels:
+            if u &gt; 0:
+                sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+        sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
+        sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
+        sub_track_center_time = [t[c] for c in sub_track_center_idx]
+
+        if len(unique_labels) &gt; 2:
+            between_times = np.diff(sub_track_center_time)
+            between_dists = np.linalg.norm(
+                np.diff(sub_track_center_pos, axis=0), axis=1
+            )
+
+        else:
+            between_times = 0
+            between_dists = 0
+
+        res = {
+            f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
+            f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
+            f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
+            / dt.sum(),
+            f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
+            f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
+            f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
+            f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
+        }
+
+        labels = labels == 0
+        labels = remove_small_objects(labels, 3)
+        labels = label(labels)
+
+        sub_track_indecies = []
+        unique_labels = set(labels)
+        for u in unique_labels:
+            if u &gt; 0:
+                sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+        sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
+        sub_track_time = [t[sti] for sti in sub_track_indecies]
+
+        sub_trajectoris = [
+            pd.DataFrame(
+                {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
+            )
+            for p, t in zip(sub_track_pos, sub_track_time)
+        ]
+
+        sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
+
+        if len(sub_trajectoris) == 0:
+            sub_trajectoris = [trj]
+
+        SS = SpeedStats(self.coords, self.frame)
+        speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
+        for key, vals in speed_vals.iterrows():
+            res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+        ELF = EllipseFit(self.coords, self.frame)
+        elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
+
+        for key, vals in elf_vals.iterrows():
+            res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+        # Directonal change
+        dc_vals = np.array(
+            [
+                np.mean(
+                    angles_from_displacements(st[self.coords].diff().dropna().values)
+                )
+                for st in sub_trajectoris
+            ]
+        )
+
+        res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
+
+        return pd.Series(res)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.PartitionFeature.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.PartitionFeature.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj, eps=6, t_scale=1.0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj, eps=6, t_scale=1.0):
+
+    p = trj[self.coords].values
+    t = trj[self.frame].values
+    dt = np.diff(t)
+
+    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
+
+    from skimage.measure import label
+    from scipy.ndimage.morphology import binary_dilation
+    from skimage.morphology import remove_small_objects
+
+    sub_track_indecies = []
+    unique_labels = set(labels)
+    for u in unique_labels:
+        if u &gt; 0:
+            sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+    sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
+    sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
+    sub_track_center_time = [t[c] for c in sub_track_center_idx]
+
+    if len(unique_labels) &gt; 2:
+        between_times = np.diff(sub_track_center_time)
+        between_dists = np.linalg.norm(
+            np.diff(sub_track_center_pos, axis=0), axis=1
+        )
+
+    else:
+        between_times = 0
+        between_dists = 0
+
+    res = {
+        f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
+        f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
+        f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
+        / dt.sum(),
+        f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
+        f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
+        f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
+        f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
+    }
+
+    labels = labels == 0
+    labels = remove_small_objects(labels, 3)
+    labels = label(labels)
+
+    sub_track_indecies = []
+    unique_labels = set(labels)
+    for u in unique_labels:
+        if u &gt; 0:
+            sub_track_indecies.append(np.nonzero(labels == u)[0])
+
+    sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
+    sub_track_time = [t[sti] for sti in sub_track_indecies]
+
+    sub_trajectoris = [
+        pd.DataFrame(
+            {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
+        )
+        for p, t in zip(sub_track_pos, sub_track_time)
+    ]
+
+    sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
+
+    if len(sub_trajectoris) == 0:
+        sub_trajectoris = [trj]
+
+    SS = SpeedStats(self.coords, self.frame)
+    speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
+    for key, vals in speed_vals.iterrows():
+        res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+    ELF = EllipseFit(self.coords, self.frame)
+    elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
+
+    for key, vals in elf_vals.iterrows():
+        res[f&#34;{self.name}__{key}__mean&#34;] = vals.mean()
+
+    # Directonal change
+    dc_vals = np.array(
+        [
+            np.mean(
+                angles_from_displacements(st[self.coords].diff().dropna().values)
+            )
+            for st in sub_trajectoris
+        ]
+    )
+
+    res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
+
+    return pd.Series(res)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.RDP_simplification"><code class="flex name class">
+<span>class <span class="ident">RDP_simplification</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RDP_simplification(TrajectoryFeature):
+    name = &#34;rdp_simplification&#34;
+
+    def compute(self, trj, min_trj_len=3, eps=1):
+        trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
+        displ_xy = np.diff(trj_rdp, axis=0)
+        ang = angles_from_displacements(displ_xy)
+
+        if len(ang) &gt; min_trj_len:
+            m = np.mean(ang)
+            s = np.std(ang)
+        else:
+            m, s = 0, 0
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
+                f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
+                f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.RDP_simplification.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.RDP_simplification.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj, min_trj_len=3, eps=1)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj, min_trj_len=3, eps=1):
+    trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
+    displ_xy = np.diff(trj_rdp, axis=0)
+    ang = angles_from_displacements(displ_xy)
+
+    if len(ang) &gt; min_trj_len:
+        m = np.mean(ang)
+        s = np.std(ang)
+    else:
+        m, s = 0, 0
+
+    return pd.Series(
+        {
+            f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
+            f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
+            f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.SpeedStats"><code class="flex name class">
+<span>class <span class="ident">SpeedStats</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SpeedStats(TrajectoryFeature):
+    name = &#34;speed&#34;
+
+    def compute(self, trj, min_trj_len=2):
+
+        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+
+        speeds = (
+            np.linalg.norm(displacements[self.coords], axis=1)
+            / trj[self.frame].diff().dropna()
+        )
+
+        if len(speeds) &gt;= min_trj_len:
+            speed_std = speeds.std()
+        else:
+            speed_std = -1
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: speeds.mean(),
+                f&#34;{self.name}_std&#34;: speed_std,
+                f&#34;{self.name}_min&#34;: speeds.min(),
+                f&#34;{self.name}_max&#34;: speeds.max(),
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.SpeedStats.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.SpeedStats.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj, min_trj_len=2)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj, min_trj_len=2):
+
+    displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+
+    speeds = (
+        np.linalg.norm(displacements[self.coords], axis=1)
+        / trj[self.frame].diff().dropna()
+    )
+
+    if len(speeds) &gt;= min_trj_len:
+        speed_std = speeds.std()
+    else:
+        speed_std = -1
+
+    return pd.Series(
+        {
+            f&#34;{self.name}_mean&#34;: speeds.mean(),
+            f&#34;{self.name}_std&#34;: speed_std,
+            f&#34;{self.name}_min&#34;: speeds.min(),
+            f&#34;{self.name}_max&#34;: speeds.max(),
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.TrackDiameter"><code class="flex name class">
+<span>class <span class="ident">TrackDiameter</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TrackDiameter(TrajectoryFeature):
+    name = &#34;track_diameter_stats&#34;
+
+    def compute(self, trj):
+        pw = pairwise_distances(trj[self.coords].values)
+        sf = squareform(pw, checks=False)
+
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: sf.mean(),
+                f&#34;{self.name}_max&#34;: sf.max(),
+                f&#34;{self.name}_std&#34;: sf.std(),
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.TrackDiameter.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.TrackDiameter.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    pw = pairwise_distances(trj[self.coords].values)
+    sf = squareform(pw, checks=False)
+
+    return pd.Series(
+        {
+            f&#34;{self.name}_mean&#34;: sf.mean(),
+            f&#34;{self.name}_max&#34;: sf.max(),
+            f&#34;{self.name}_std&#34;: sf.std(),
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.TrackDuration"><code class="flex name class">
+<span>class <span class="ident">TrackDuration</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TrackDuration(TrajectoryFeature):
+    name = &#34;track_duration&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.TrackDuration.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.TrackDuration.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    return pd.Series(
+        {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.TrackLength"><code class="flex name class">
+<span>class <span class="ident">TrackLength</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TrackLength(TrajectoryFeature):
+    name = &#34;track_length&#34;
+
+    def compute(self, trj):
+        return pd.Series(
+            {
+                f&#34;{self.name}&#34;: np.linalg.norm(
+                    trj[self.coords].diff().dropna(), axis=1
+                ).sum()
+            }
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.TrackLength.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.TrackLength.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    return pd.Series(
+        {
+            f&#34;{self.name}&#34;: np.linalg.norm(
+                trj[self.coords].diff().dropna(), axis=1
+            ).sum()
+        }
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.TrajectoryFeature"><code class="flex name class">
+<span>class <span class="ident">TrajectoryFeature</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TrajectoryFeature:
+    def __init__(self, coords, frame):
+        self.coords = coords
+        self.frame = frame</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.ConfinementRatio" href="#trackpal.features.ConfinementRatio">ConfinementRatio</a></li>
+<li><a title="trackpal.features.DirectionalChange" href="#trackpal.features.DirectionalChange">DirectionalChange</a></li>
+<li><a title="trackpal.features.DirectionalChangeCount" href="#trackpal.features.DirectionalChangeCount">DirectionalChangeCount</a></li>
+<li><a title="trackpal.features.EllipseFit" href="#trackpal.features.EllipseFit">EllipseFit</a></li>
+<li><a title="trackpal.features.MSDParabola" href="#trackpal.features.MSDParabola">MSDParabola</a></li>
+<li><a title="trackpal.features.MeanStraightLineSpeed" href="#trackpal.features.MeanStraightLineSpeed">MeanStraightLineSpeed</a></li>
+<li><a title="trackpal.features.PartitionFeature" href="#trackpal.features.PartitionFeature">PartitionFeature</a></li>
+<li><a title="trackpal.features.RDP_simplification" href="#trackpal.features.RDP_simplification">RDP_simplification</a></li>
+<li><a title="trackpal.features.SpeedStats" href="#trackpal.features.SpeedStats">SpeedStats</a></li>
+<li><a title="trackpal.features.TrackDiameter" href="#trackpal.features.TrackDiameter">TrackDiameter</a></li>
+<li><a title="trackpal.features.TrackDuration" href="#trackpal.features.TrackDuration">TrackDuration</a></li>
+<li><a title="trackpal.features.TrackLength" href="#trackpal.features.TrackLength">TrackLength</a></li>
+<li><a title="trackpal.features.VACstats" href="#trackpal.features.VACstats">VACstats</a></li>
+<li><a title="trackpal.features.VelocityAverage" href="#trackpal.features.VelocityAverage">VelocityAverage</a></li>
+</ul>
+</dd>
+<dt id="trackpal.features.VACstats"><code class="flex name class">
+<span>class <span class="ident">VACstats</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VACstats(TrajectoryFeature):
+    name = &#34;vac_stats&#34;
+
+    def compute(self, trj, min_trj_len=3):
+        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+        tau, vac_vals = velocity.velocity_autocorr_pre_track(
+            displacements, self.coords, self.frame
+        )
+
+        if len(tau) &gt; min_trj_len:
+            return pd.Series(
+                {
+                    f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
+                    f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
+                    f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
+                    f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
+                }
+            )
+        else:
+            return pd.Series(
+                {
+                    f&#34;{self.name}_mean&#34;: 0,
+                    f&#34;{self.name}_std&#34;: 0,
+                    f&#34;{self.name}_min&#34;: 0,
+                    f&#34;{self.name}_max&#34;: 0,
+                }
+            )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.VACstats.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.VACstats.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj, min_trj_len=3)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj, min_trj_len=3):
+    displacements = velocity.compute_velocities(trj, self.coords, self.frame)
+    tau, vac_vals = velocity.velocity_autocorr_pre_track(
+        displacements, self.coords, self.frame
+    )
+
+    if len(tau) &gt; min_trj_len:
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
+                f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
+                f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
+                f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
+            }
+        )
+    else:
+        return pd.Series(
+            {
+                f&#34;{self.name}_mean&#34;: 0,
+                f&#34;{self.name}_std&#34;: 0,
+                f&#34;{self.name}_min&#34;: 0,
+                f&#34;{self.name}_max&#34;: 0,
+            }
+        )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="trackpal.features.VelocityAverage"><code class="flex name class">
+<span>class <span class="ident">VelocityAverage</span></span>
+<span>(</span><span>coords, frame)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VelocityAverage(TrajectoryFeature):
+    name = &#34;velocity_average&#34;
+
+    def compute(self, trj):
+        tl = TrackLength(self.coords, self.frame).compute
+        td = TrackDuration(self.coords, self.frame).compute
+        return pd.Series(
+            {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="trackpal.features.VelocityAverage.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="trackpal.features.VelocityAverage.compute"><code class="name flex">
+<span>def <span class="ident">compute</span></span>(<span>self, trj)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compute(self, trj):
+    tl = TrackLength(self.coords, self.frame).compute
+    td = TrackDuration(self.coords, self.frame).compute
+    return pd.Series(
+        {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="trackpal" href="index.html">trackpal</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="trackpal.features.angles_from_displacements" href="#trackpal.features.angles_from_displacements">angles_from_displacements</a></code></li>
+<li><code><a title="trackpal.features.partition_dbscann" href="#trackpal.features.partition_dbscann">partition_dbscann</a></code></li>
+<li><code><a title="trackpal.features.partition_get_moving_part" href="#trackpal.features.partition_get_moving_part">partition_get_moving_part</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="trackpal.features.ConfinementRatio" href="#trackpal.features.ConfinementRatio">ConfinementRatio</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.ConfinementRatio.compute" href="#trackpal.features.ConfinementRatio.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.ConfinementRatio.name" href="#trackpal.features.ConfinementRatio.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.DirectionalChange" href="#trackpal.features.DirectionalChange">DirectionalChange</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.DirectionalChange.compute" href="#trackpal.features.DirectionalChange.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.DirectionalChange.name" href="#trackpal.features.DirectionalChange.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.DirectionalChangeCount" href="#trackpal.features.DirectionalChangeCount">DirectionalChangeCount</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.DirectionalChangeCount.compute" href="#trackpal.features.DirectionalChangeCount.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.DirectionalChangeCount.name" href="#trackpal.features.DirectionalChangeCount.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.EllipseFit" href="#trackpal.features.EllipseFit">EllipseFit</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.EllipseFit.compute" href="#trackpal.features.EllipseFit.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.EllipseFit.name" href="#trackpal.features.EllipseFit.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.Features" href="#trackpal.features.Features">Features</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.Features.get" href="#trackpal.features.Features.get">get</a></code></li>
+<li><code><a title="trackpal.features.Features.list" href="#trackpal.features.Features.list">list</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.MSDParabola" href="#trackpal.features.MSDParabola">MSDParabola</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.MSDParabola.compute" href="#trackpal.features.MSDParabola.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.MSDParabola.name" href="#trackpal.features.MSDParabola.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.MeanStraightLineSpeed" href="#trackpal.features.MeanStraightLineSpeed">MeanStraightLineSpeed</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.MeanStraightLineSpeed.compute" href="#trackpal.features.MeanStraightLineSpeed.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.MeanStraightLineSpeed.name" href="#trackpal.features.MeanStraightLineSpeed.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.PartitionFeature" href="#trackpal.features.PartitionFeature">PartitionFeature</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.PartitionFeature.compute" href="#trackpal.features.PartitionFeature.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.PartitionFeature.name" href="#trackpal.features.PartitionFeature.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.RDP_simplification" href="#trackpal.features.RDP_simplification">RDP_simplification</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.RDP_simplification.compute" href="#trackpal.features.RDP_simplification.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.RDP_simplification.name" href="#trackpal.features.RDP_simplification.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.SpeedStats" href="#trackpal.features.SpeedStats">SpeedStats</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.SpeedStats.compute" href="#trackpal.features.SpeedStats.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.SpeedStats.name" href="#trackpal.features.SpeedStats.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.TrackDiameter" href="#trackpal.features.TrackDiameter">TrackDiameter</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.TrackDiameter.compute" href="#trackpal.features.TrackDiameter.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.TrackDiameter.name" href="#trackpal.features.TrackDiameter.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.TrackDuration" href="#trackpal.features.TrackDuration">TrackDuration</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.TrackDuration.compute" href="#trackpal.features.TrackDuration.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.TrackDuration.name" href="#trackpal.features.TrackDuration.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.TrackLength" href="#trackpal.features.TrackLength">TrackLength</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.TrackLength.compute" href="#trackpal.features.TrackLength.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.TrackLength.name" href="#trackpal.features.TrackLength.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.TrajectoryFeature" href="#trackpal.features.TrajectoryFeature">TrajectoryFeature</a></code></h4>
+</li>
+<li>
+<h4><code><a title="trackpal.features.VACstats" href="#trackpal.features.VACstats">VACstats</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.VACstats.compute" href="#trackpal.features.VACstats.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.VACstats.name" href="#trackpal.features.VACstats.name">name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="trackpal.features.VelocityAverage" href="#trackpal.features.VelocityAverage">VelocityAverage</a></code></h4>
+<ul class="">
+<li><code><a title="trackpal.features.VelocityAverage.compute" href="#trackpal.features.VelocityAverage.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.VelocityAverage.name" href="#trackpal.features.VelocityAverage.name">name</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
+</footer>
+</body>
+</html>
