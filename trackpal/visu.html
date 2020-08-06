@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.8.4" />
 <title>trackpal.visu API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Track visualization" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
@@ -22,26 +22,23 @@
 <h1 class="title">Module <code>trackpal.visu</code></h1>
 </header>
 <section id="section-intro">
+<p>Track visualization</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import pandas
-import numpy
+<pre><code class="python">&#34;&#34;&#34;Track visualization&#34;&#34;&#34;
 
-np = numpy
-import statsmodels.api as sm
 from matplotlib import pyplot as plt
-from scipy.optimize import curve_fit
 
 
 def plot_trj(
     trj,
-    coords,
+    coords=None,
     ax=None,
-    scale=10,
+    scale=None,
     line_fmt=&#34;x:&#34;,
-    line_color=&#34;gray&#34;,
+    line_color=None,
     line_label=&#34;Trajectory&#34;,
     line_width=None,
     marker_size=None,
@@ -51,20 +48,24 @@ def plot_trj(
     &#34;&#34;&#34;[summary]
 
     Args:
-        trj (DataFrame): [description]
+        trj (pandas.DataFrame): tracks to plot
         coords (list): The names of the x/y coodrinate column names
-        ax ([type], optional): [description]. Defaults to None.
-        scale (int, optional): [description]. Defaults to 10.
-        line_fmt (str, optional): [description]. Defaults to &#34;x:&#34;.
-        line_color (str, optional): [description]. Defaults to &#34;gray&#34;.
-        line_label (str, optional): [description]. Defaults to &#34;Trajectory&#34;.
-        line_width ([type], optional): [description]. Defaults to None.
-        marker_size ([type], optional): [description]. Defaults to None.
-        alpha ([type], optional): [description]. Defaults to None.
-        start_end (tuple, optional): [description]. Defaults to (True, True).
+        ax (optional): matplotlib axes to plot in. Defaults to None.
+        scale (int, optional): length of scale bar. Defaults to 10.
+        line_fmt (str, optional): Defaults to &#34;x:&#34;.
+        line_color (str, optional): Defaults to &#34;gray&#34;.
+        line_label (str, optional): Defaults to &#34;Trajectory&#34;.
+        line_width ([type], optional): Defaults to None.
+        marker_size ([type], optional): Defaults to None.
+        alpha ([type], optional): Defaults to None.
+        start_end (tuple, optional): Show marker for start/end of track. Defaults to (True, True).
     &#34;&#34;&#34;
     if not ax:
         ax = plt.gca()
+
+    if not coords:
+        coords = trj.coords
+
     ax.plot(
         *(trj[coords].values.T),
         line_fmt,
@@ -102,34 +103,34 @@ def plot_trj(
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="trackpal.visu.plot_trj"><code class="name flex">
-<span>def <span class="ident">plot_trj</span></span>(<span>trj, coords, ax=None, scale=10, line_fmt='x:', line_color='gray', line_label='Trajectory', line_width=None, marker_size=None, alpha=None, start_end=(True, True))</span>
+<span>def <span class="ident">plot_trj</span></span>(<span>trj, coords=None, ax=None, scale=None, line_fmt='x:', line_color=None, line_label='Trajectory', line_width=None, marker_size=None, alpha=None, start_end=(True, True))</span>
 </code></dt>
 <dd>
 <div class="desc"><p>[summary]</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>trj</code></strong> :&ensp;<code>DataFrame</code></dt>
-<dd>[description]</dd>
+<dt><strong><code>trj</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>tracks to plot</dd>
 <dt><strong><code>coords</code></strong> :&ensp;<code>list</code></dt>
 <dd>The names of the x/y coodrinate column names</dd>
-<dt><strong><code>ax</code></strong> :&ensp;<code>[type]</code>, optional</dt>
-<dd>[description]. Defaults to None.</dd>
+<dt><strong><code>ax</code></strong> :&ensp;<code>optional</code></dt>
+<dd>matplotlib axes to plot in. Defaults to None.</dd>
 <dt><strong><code>scale</code></strong> :&ensp;<code>int</code>, optional</dt>
-<dd>[description]. Defaults to 10.</dd>
+<dd>length of scale bar. Defaults to 10.</dd>
 <dt><strong><code>line_fmt</code></strong> :&ensp;<code>str</code>, optional</dt>
-<dd>[description]. Defaults to "x:".</dd>
+<dd>Defaults to "x:".</dd>
 <dt><strong><code>line_color</code></strong> :&ensp;<code>str</code>, optional</dt>
-<dd>[description]. Defaults to "gray".</dd>
+<dd>Defaults to "gray".</dd>
 <dt><strong><code>line_label</code></strong> :&ensp;<code>str</code>, optional</dt>
-<dd>[description]. Defaults to "Trajectory".</dd>
+<dd>Defaults to "Trajectory".</dd>
 <dt><strong><code>line_width</code></strong> :&ensp;<code>[type]</code>, optional</dt>
-<dd>[description]. Defaults to None.</dd>
+<dd>Defaults to None.</dd>
 <dt><strong><code>marker_size</code></strong> :&ensp;<code>[type]</code>, optional</dt>
-<dd>[description]. Defaults to None.</dd>
+<dd>Defaults to None.</dd>
 <dt><strong><code>alpha</code></strong> :&ensp;<code>[type]</code>, optional</dt>
-<dd>[description]. Defaults to None.</dd>
+<dd>Defaults to None.</dd>
 <dt><strong><code>start_end</code></strong> :&ensp;<code>tuple</code>, optional</dt>
-<dd>[description]. Defaults to (True, True).</dd>
+<dd>Show marker for start/end of track. Defaults to (True, True).</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -137,11 +138,11 @@ def plot_trj(
 </summary>
 <pre><code class="python">def plot_trj(
     trj,
-    coords,
+    coords=None,
     ax=None,
-    scale=10,
+    scale=None,
     line_fmt=&#34;x:&#34;,
-    line_color=&#34;gray&#34;,
+    line_color=None,
     line_label=&#34;Trajectory&#34;,
     line_width=None,
     marker_size=None,
@@ -151,20 +152,24 @@ def plot_trj(
     &#34;&#34;&#34;[summary]
 
     Args:
-        trj (DataFrame): [description]
+        trj (pandas.DataFrame): tracks to plot
         coords (list): The names of the x/y coodrinate column names
-        ax ([type], optional): [description]. Defaults to None.
-        scale (int, optional): [description]. Defaults to 10.
-        line_fmt (str, optional): [description]. Defaults to &#34;x:&#34;.
-        line_color (str, optional): [description]. Defaults to &#34;gray&#34;.
-        line_label (str, optional): [description]. Defaults to &#34;Trajectory&#34;.
-        line_width ([type], optional): [description]. Defaults to None.
-        marker_size ([type], optional): [description]. Defaults to None.
-        alpha ([type], optional): [description]. Defaults to None.
-        start_end (tuple, optional): [description]. Defaults to (True, True).
+        ax (optional): matplotlib axes to plot in. Defaults to None.
+        scale (int, optional): length of scale bar. Defaults to 10.
+        line_fmt (str, optional): Defaults to &#34;x:&#34;.
+        line_color (str, optional): Defaults to &#34;gray&#34;.
+        line_label (str, optional): Defaults to &#34;Trajectory&#34;.
+        line_width ([type], optional): Defaults to None.
+        marker_size ([type], optional): Defaults to None.
+        alpha ([type], optional): Defaults to None.
+        start_end (tuple, optional): Show marker for start/end of track. Defaults to (True, True).
     &#34;&#34;&#34;
     if not ax:
         ax = plt.gca()
+
+    if not coords:
+        coords = trj.coords
+
     ax.plot(
         *(trj[coords].values.T),
         line_fmt,

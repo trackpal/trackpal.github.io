@@ -22,75 +22,172 @@
 <h1 class="title">Package <code>trackpal</code></h1>
 </header>
 <section id="section-intro">
-<p>TrackPal: Tracking Python AnaLyzer</p>
-<p>Analze 2D object trackings with Python and pandas.</p>
-<p>Main features:</p>
+<h1 id="trackpal-tracking-python-analyzer">TrackPal: Tracking Python AnaLyzer</h1>
+<p>A modular library for the analysis of object trackings in Python with pandas.</p>
+<h2 id="overview">Overview</h2>
+<h3 id="track-representation">Track representation</h3>
+<p>Tracks are represented as a (stacked) pandas DataFrame with a minium of 5 columns for:</p>
 <ul>
-<li>
-<p><code><a title="trackpal.read" href="read.html">trackpal.read</a></code>: reading from comma separated text files (.csv) from Imaris and from (.xml) TrackMate</p>
-</li>
-<li>
-<p><code><a title="trackpal.simulate" href="simulate.html">trackpal.simulate</a></code>: simulate brownian, linear and saltatory motion</p>
-</li>
-<li>
-<p><code><a title="trackpal.features" href="features.html">trackpal.features</a></code>: compute feature descriptors for tracks for subsequent analysis</p>
-</li>
-<li>
-<p><code><a title="trackpal.visu" href="visu.html">trackpal.visu</a></code>: visualize tracks</p>
-</li>
-<li>
-<p><code><a title="trackpal.drift" href="drift.html">trackpal.drift</a></code>: correct for drift</p>
-</li>
-<li>
-<p><code><a title="trackpal.msd" href="msd.html">trackpal.msd</a></code>:
-mean squared displacement curves</p>
-</li>
-<li>
-<p><code><a title="trackpal.msd" href="msd.html">trackpal.msd</a></code>:
-velocity autocorrelation curves</p>
+<li>TrackID</li>
+<li>FrameID</li>
+<li>Position for X and Y coordinates</li>
+<li>TimeID</li>
+</ul>
+<p>Each track must have an unique TrackID.</p>
+<p>More columns can be added to store additional information.</p>
+<p>A loaded or a simulated data set contains an attribute <code>id</code> which holds the
+identifiers to access the columns.</p>
+<p>The default identifiers are:</p>
+<ul>
+<li>TrackID: <code>"track"</code></li>
+<li>FrameID: <code>"frame"</code></li>
+<li>Position for X and Y coordinates: <code>"xy"</code></li>
+<li>TimeID <code>"time"</code></li>
+</ul>
+<h3 id="general">General</h3>
+<p>For most computations trackpal relies on pandas <code>groupby</code> and <code>apply</code> mechanism.</p>
+<p><code>TrackPal</code> does not track or link objects. It analyzes already tracked objects.
+For obtaining object trackings from images or detections see for instance the
+excellent projects <a href="https://imagej.net/TrackMate">TrackMate</a>,
+<a href="http://soft-matter.github.io/trackpy">trackpy</a> or <a href="ilastik.org">ilastik</a></p>
+<h2 id="examples">Examples:</h2>
+<h3 id="simulate-tracks">Simulate tracks</h3>
+<p>The following types of tracks are supported:</p>
+<ul>
+<li>brownian motion (Gaussian random walk)</li>
+<li>linear motion</li>
+<li>mixed brownian and linear</li>
+<li>saltatory motion</li>
+</ul>
+<p>Example:</p>
+<pre><code class="python">import trackpal as tp
+
+trj = tp.simulate.brownian_linear(n_tracks=10)
+
+# plot as lines
+trj.groupby(trj.trackid).apply(
+    tp.visu.plot_trj, coords=trj.xy, line_fmt=&quot;.-&quot;,
+)
+</code></pre>
+<p>Output:
+<img alt="" src="https://git.ist.ac.at/csommer/trackpal/-/raw/master/doc/img/bl_tracks_01.png" title="Output"></p>
+<h3 id="track-features">Track features</h3>
+<ul>
+<li>Simulate different motion types and compute track feautres<ul>
+<li><a href="https://git.ist.ac.at/csommer/trackpal/-/blob/master/examples/01_track_features.ipynb">notebook</a></li>
+</ul>
 </li>
 </ul>
-<p>Source code and issue tracker: <a href="https://www.github.com/sommerc/trackpal">on github</a></p>
+<h2 id="source-code-and-issue-tracker">Source code and issue tracker:</h2>
+<p><a href="https://git.ist.ac.at/csommer/trackpal/-/raw/c4ea8ca1245bc42bf1f094f102da45e325a7ef0d/doc/img/bl_tracks_01.png">on github</a></p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;TrackPal: Tracking Python AnaLyzer
+<pre><code class="python">&#34;&#34;&#34;#TrackPal: Tracking Python AnaLyzer
 
-Analze 2D object trackings with Python and pandas.
+A modular library for the analysis of object trackings in Python with pandas.
 
-Main features:
+## Overview
 
-* `trackpal.read`: reading from comma separated text files (.csv) from Imaris and from (.xml) TrackMate
+### Track representation
 
-* `trackpal.simulate`: simulate brownian, linear and saltatory motion
+Tracks are represented as a (stacked) pandas DataFrame with a minium of 5 columns for:
 
-* `trackpal.features`: compute feature descriptors for tracks for subsequent analysis
+* TrackID
+* FrameID
+* Position for X and Y coordinates
+* TimeID
 
-* `trackpal.visu`: visualize tracks
+Each track must have an unique TrackID.
 
-* `trackpal.drift`: correct for drift
+More columns can be added to store additional information.
 
-* `trackpal.msd`:
-    mean squared displacement curves
+A loaded or a simulated data set contains an attribute `id` which holds the
+identifiers to access the columns.
 
-* `trackpal.msd`:
-    velocity autocorrelation curves
+The default identifiers are:
+
+* TrackID: `&#34;track&#34;`
+* FrameID: `&#34;frame&#34;`
+* Position for X and Y coordinates: `&#34;xy&#34;`
+* TimeID `&#34;time&#34;`
 
 
-Source code and issue tracker: [on github](https://www.github.com/sommerc/trackpal)
+
+
+### General
+For most computations trackpal relies on pandas `groupby` and `apply` mechanism.
+
+`TrackPal` does not track or link objects. It analyzes already tracked objects.
+For obtaining object trackings from images or detections see for instance the
+excellent projects [TrackMate](https://imagej.net/TrackMate),
+[trackpy](http://soft-matter.github.io/trackpy) or [ilastik](ilastik.org)
+
+## Examples:
+
+### Simulate tracks
+The following types of tracks are supported:
+
+* brownian motion (Gaussian random walk)
+* linear motion
+* mixed brownian and linear
+* saltatory motion
+
+Example:
+```python
+import trackpal as tp
+
+trj = tp.simulate.brownian_linear(n_tracks=10)
+
+# plot as lines
+trj.groupby(trj.trackid).apply(
+    tp.visu.plot_trj, coords=trj.xy, line_fmt=&#34;.-&#34;,
+)
+```
+
+Output:
+![](https://git.ist.ac.at/csommer/trackpal/-/raw/master/doc/img/bl_tracks_01.png &#34;Output&#34;)
+
+### Track features
+
+* Simulate different motion types and compute track feautres
+    * [notebook](https://git.ist.ac.at/csommer/trackpal/-/blob/master/examples/01_track_features.ipynb)
+
+
+## Source code and issue tracker:
+[on github](https://git.ist.ac.at/csommer/trackpal/-/raw/c4ea8ca1245bc42bf1f094f102da45e325a7ef0d/doc/img/bl_tracks_01.png )
 
 
 &#34;&#34;&#34;
 
+__all__ = [
+    # &#34;drift&#34;, ##TODO
+    &#34;features&#34;,
+    &#34;fit&#34;,
+    &#34;msd&#34;,
+    &#34;read&#34;,
+    &#34;simulate&#34;,
+    &#34;velocity&#34;,
+    &#34;version&#34;,
+    &#34;visu&#34;,
+    &#34;concat_relabel&#34;,
+]
+
+
 import numpy as np
 import pandas as pd
-
 from itertools import count
 
+from .utils import clone_id_attr
+from . import features, fit, msd, read, velocity, version, visu, simulate
 
+
+@clone_id_attr
 def concat_relabel(trj_list, trackid=None):
-    if trackid is None:
+    if hasattr(trj_list[0], &#34;trackid&#34;):
+        trackid = getattr(trj_list[0], &#34;trackid&#34;)
+    elif trackid is None:
         from .simulate import trackid
 
     cnt = count(start=0, step=1)
@@ -112,7 +209,7 @@ def concat_relabel(trj_list, trackid=None):
 </dd>
 <dt><code class="name"><a title="trackpal.features" href="features.html">trackpal.features</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Module for track feature descriptors.</p></div>
 </dd>
 <dt><code class="name"><a title="trackpal.fit" href="fit.html">trackpal.fit</a></code></dt>
 <dd>
@@ -128,7 +225,7 @@ def concat_relabel(trj_list, trackid=None):
 </dd>
 <dt><code class="name"><a title="trackpal.read" href="read.html">trackpal.read</a></code></dt>
 <dd>
-<div class="desc"><p>Reading tracks from Imaris (.csv) and TrackMate (.xml) …</p></div>
+<div class="desc"><p>Reading tracks from Imaris (.csv) and TrackMate (.xml)</p></div>
 </dd>
 <dt><code class="name"><a title="trackpal.simulate" href="simulate.html">trackpal.simulate</a></code></dt>
 <dd>
@@ -136,11 +233,11 @@ def concat_relabel(trj_list, trackid=None):
 </dd>
 <dt><code class="name"><a title="trackpal.utils" href="utils.html">trackpal.utils</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>General helper and utility functions</p></div>
 </dd>
 <dt><code class="name"><a title="trackpal.velocity" href="velocity.html">trackpal.velocity</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Velocity auto-correlation</p></div>
 </dd>
 <dt><code class="name"><a title="trackpal.version" href="version.html">trackpal.version</a></code></dt>
 <dd>
@@ -148,7 +245,7 @@ def concat_relabel(trj_list, trackid=None):
 </dd>
 <dt><code class="name"><a title="trackpal.visu" href="visu.html">trackpal.visu</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Track visualization</p></div>
 </dd>
 </dl>
 </section>
@@ -158,7 +255,7 @@ def concat_relabel(trj_list, trackid=None):
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="trackpal.concat_relabel"><code class="name flex">
-<span>def <span class="ident">concat_relabel</span></span>(<span>trj_list, trackid=None)</span>
+<span>def <span class="ident">concat_relabel</span></span>(<span>df_or_list, *args, **kwargs)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -166,18 +263,17 @@ def concat_relabel(trj_list, trackid=None):
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def concat_relabel(trj_list, trackid=None):
-    if trackid is None:
-        from .simulate import trackid
+<pre><code class="python">def wrapper(df_or_list, *args, **kwargs):
+    if isinstance(df_or_list, (list, tuple)):
+        assert len(df_or_list) &gt; 0, &#34;Concatenation of empty list&#34;
+        df = df_or_list[0]
+    else:
+        df = df_or_list
 
-    cnt = count(start=0, step=1)
-    res = []
-    for i, trj in enumerate(trj_list):
-        for t_id in trj[trackid].unique():
-            cur_trj = trj.loc[trj[trackid] == t_id].copy()
-            cur_trj[trackid] = next(cnt)
-            res.append(cur_trj)
-    return pd.concat(res, axis=0, ignore_index=True).reset_index(drop=True)</code></pre>
+    res_df = df_func(df_or_list, *args, **kwargs)
+    if hasattr(df, &#34;id&#34;):
+        setattr(res_df, &#34;id&#34;, getattr(df, &#34;id&#34;))
+    return res_df</code></pre>
 </details>
 </dd>
 </dl>
@@ -188,7 +284,22 @@ def concat_relabel(trj_list, trackid=None):
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
-<ul></ul>
+<ul>
+<li><a href="#trackpal-tracking-python-analyzer">TrackPal: Tracking Python AnaLyzer</a><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#track-representation">Track representation</a></li>
+<li><a href="#general">General</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples:</a><ul>
+<li><a href="#simulate-tracks">Simulate tracks</a></li>
+<li><a href="#track-features">Track features</a></li>
+</ul>
+</li>
+<li><a href="#source-code-and-issue-tracker">Source code and issue tracker:</a></li>
+</ul>
+</li>
+</ul>
 </div>
 <ul id="index">
 <li><h3><a href="#header-submodules">Sub-modules</a></h3>

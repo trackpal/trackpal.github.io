@@ -29,11 +29,11 @@
 <pre><code class="python">import numpy as np
 import pandas as pd
 
-frameid = &#34;frameid&#34;
-timeid = &#34;&#34;
+from .utils import set_meta_attr, IdDefaults
 
-coords = [&#34;Position X&#34;, &#34;Position Y&#34;]
-trackid = &#34;TrackID&#34;
+coords = IdDefaults.xy
+trackid = IdDefaults.track
+frameid = IdDefaults.frame
 
 
 def _brownian_xy(n, diffusion=1, xs_rng=(0, 100), ys_rng=(0, 100), frame_interval=1):
@@ -78,7 +78,7 @@ def brownian(
 
     brownian_track = pd.concat(res, axis=0).reset_index(drop=True)
 
-    return brownian_track
+    return set_meta_attr(brownian_track)
 
 
 def _linear_xy(
@@ -126,15 +126,17 @@ def linear(
 
     brownian_track = pd.concat(res, axis=0).reset_index(drop=True)
 
-    return brownian_track
+    return set_meta_attr(brownian_track)
 
 
 def brownian_linear(diffusion=1, velocity=1, **kwargs):
     b = brownian(diffusion=diffusion, **kwargs)
-    l = linear(velocity=velocity, **kwargs)
+    l = linear(velocity=velocity, xs_rng=(0, 0), ys_rng=(0, 0), **kwargs)
 
     trj = b
+
     trj[coords] += l[coords]
+
     return trj
 
 
@@ -196,7 +198,7 @@ def saltatory(
 
         res.append(df)
 
-    return pd.concat(res, axis=0).reset_index(drop=True)</code></pre>
+    return set_meta_attr(pd.concat(res, axis=0).reset_index(drop=True))</code></pre>
 </details>
 </section>
 <section>
@@ -247,7 +249,7 @@ def saltatory(
 
     brownian_track = pd.concat(res, axis=0).reset_index(drop=True)
 
-    return brownian_track</code></pre>
+    return set_meta_attr(brownian_track)</code></pre>
 </details>
 </dd>
 <dt id="trackpal.simulate.brownian_linear"><code class="name flex">
@@ -261,10 +263,12 @@ def saltatory(
 </summary>
 <pre><code class="python">def brownian_linear(diffusion=1, velocity=1, **kwargs):
     b = brownian(diffusion=diffusion, **kwargs)
-    l = linear(velocity=velocity, **kwargs)
+    l = linear(velocity=velocity, xs_rng=(0, 0), ys_rng=(0, 0), **kwargs)
 
     trj = b
+
     trj[coords] += l[coords]
+
     return trj</code></pre>
 </details>
 </dd>
@@ -307,7 +311,7 @@ def saltatory(
 
     brownian_track = pd.concat(res, axis=0).reset_index(drop=True)
 
-    return brownian_track</code></pre>
+    return set_meta_attr(brownian_track)</code></pre>
 </details>
 </dd>
 <dt id="trackpal.simulate.saltatory"><code class="name flex">
@@ -377,7 +381,7 @@ def saltatory(
 
         res.append(df)
 
-    return pd.concat(res, axis=0).reset_index(drop=True)</code></pre>
+    return set_meta_attr(pd.concat(res, axis=0).reset_index(drop=True))</code></pre>
 </details>
 </dd>
 </dl>
