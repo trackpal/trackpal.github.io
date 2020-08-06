@@ -12,6 +12,7 @@
 <style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
 <style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML" integrity="sha256-kZafAc6mZvK3W3v1pHOcUix30OHQN6pU/NO2oFkqZVw=" crossorigin></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
 <script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
 </head>
@@ -23,564 +24,6 @@
 </header>
 <section id="section-intro">
 <p>Module for track feature descriptors.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Module for track feature descriptors.
-&#34;&#34;&#34;
-
-import numpy as np
-import pandas as pd
-
-from rdp import rdp
-
-from sklearn.cluster import DBSCAN
-from sklearn.metrics import pairwise_distances
-from scipy.spatial.distance import squareform
-
-from . import msd, utils, velocity
-
-EPS = 10e-12
-
-
-class Features:
-    &#34;&#34;&#34;Factory class for the creating of `TrackFeature`
-
-    &#34;&#34;&#34;
-
-    def __init__(self, coords, frame):
-        self.coords = coords
-        self.frame = frame
-
-        self._lookup = {}
-        for klass in TrackFeature.__subclasses__():
-            self._lookup[klass.name] = klass
-
-    def get(self, name):
-        &#34;&#34;&#34;Retrieve track feature by name&#34;&#34;&#34;
-        return self._lookup[name](coords=self.coords, frame=self.frame)
-
-    @staticmethod
-    def list(verbose=False):
-        &#34;&#34;&#34;List names of all available features
-        &#34;&#34;&#34;
-        for klass in sorted(TrackFeature.__subclasses__(), key=lambda k: k.name):
-            print(klass.name)
-            if verbose:
-                print(klass.compute.__doc__)
-
-
-class TrackFeature:
-    &#34;&#34;&#34;Base class for all track features
-
-    &#34;&#34;&#34;
-
-    def __init__(self, coords, frame):
-        self.coords = coords
-        self.frame = frame
-
-
-class MSDParabola(TrackFeature):
-    &#34;&#34;&#34;Fits a parabola to mean squared displacment curve of track and returns
-    fit parameters and \(R^2\)
-
-    &#34;&#34;&#34;
-
-    name = &#34;msd_parabola&#34;
-
-    def compute(self, trj, clip=0.9, min_trj_len=3):
-        tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
-        d, v2, r2 = 0, 0, 0
-        if len(tau) &gt; min_trj_len:
-            d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
-
-        return pd.Series(
-            {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
-        )
-
-
-class VACstats(TrackFeature):
-    &#34;&#34;&#34;Computes velocity autocorrelation and returns statistics
-
-    * mean
-    * std
-    * min
-    * max
-
-    of the curve for delays \( &gt; 0\)
-
-    &#34;&#34;&#34;
-
-    name = &#34;vac_stats&#34;
-
-    def compute(self, trj, min_trj_len=3):
-        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
-        tau, vac_vals = velocity.velocity_autocorr_pre_track(
-            displacements, self.coords, self.frame
-        )
-
-        if len(tau) &gt; min_trj_len:
-            return pd.Series(
-                {
-                    f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
-                    f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
-                    f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
-                    f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
-                }
-            )
-        else:
-            return pd.Series(
-                {
-                    f&#34;{self.name}_mean&#34;: 0,
-                    f&#34;{self.name}_std&#34;: 0,
-                    f&#34;{self.name}_min&#34;: 0,
-                    f&#34;{self.name}_max&#34;: 0,
-                }
-            )
-
-
-class SpeedStats(TrackFeature):
-    &#34;&#34;&#34;Compute several statistics of the instantaneous speed
-
-        * mean
-        * std
-        * min
-        * max
-    &#34;&#34;&#34;
-
-    name = &#34;speed_stats&#34;
-
-    def compute(self, trj, min_trj_len=2):
-
-        displacements = velocity.displacement(trj, self.coords, self.frame)
-
-        speeds = (
-            np.linalg.norm(displacements[self.coords], axis=1)
-            / trj[self.frame].diff().dropna()
-        )
-
-        if len(speeds) &gt;= min_trj_len:
-            speed_std = speeds.std()
-        else:
-            speed_std = -1
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: speeds.mean(),
-                f&#34;{self.name}_std&#34;: speed_std,
-                f&#34;{self.name}_min&#34;: speeds.min(),
-                f&#34;{self.name}_max&#34;: speeds.max(),
-            }
-        )
-
-
-class ConfinementRatio(TrackFeature):
-    &#34;&#34;&#34;Compute confinement ration as net distance divided by total distance travelled
-        $$\\frac{\\|x_n-x_1\\|}{\\sum_{i=1}^n \\|x_i\\|}$$
-    &#34;&#34;&#34;
-
-    name = &#34;confinement_ratio&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
-                )
-                / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
-            }
-        )
-
-
-class MeanStraightLineSpeed(TrackFeature):
-    &#34;&#34;&#34;Compute mean straight line speed as net distance divided by total time
-        $$\\frac{\\|x_n-x_1\\|}{\\sum_{i=1}^n \\|\\Delta t_i\\|}$$
-    &#34;&#34;&#34;
-
-    name = &#34;mean_straight_line_speed&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
-                )
-                / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
-            }
-        )
-
-
-class GyrationTensor(TrackFeature):
-    &#34;&#34;&#34;Compute gyration tensor by fitting an ellipse and extraction several measures
-
-    * axis lengths
-    * axis ratio
-    * radius \(R^2\)
-    * coherence
-    &#34;&#34;&#34;
-
-    name = &#34;gyration_tensor&#34;
-
-    def compute(self, trj):
-        p = trj[self.coords].values
-        pc = p - p.mean(0)
-
-        cov = np.cov(pc.T)
-        evals, evecs = np.linalg.eig(cov)
-
-        sort_indices = np.argsort(evals)
-
-        l1 = np.sqrt(evals[sort_indices[0]])
-        l2 = np.sqrt(evals[sort_indices[1]])
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_minor_axis_length&#34;: l1,
-                f&#34;{self.name}_major_axis_length&#34;: l2,
-                f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
-                f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
-                f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
-            }
-        )
-
-
-class TrackDuration(TrackFeature):
-    &#34;&#34;&#34;Duration of track
-    &#34;&#34;&#34;
-
-    name = &#34;track_duration&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
-        )
-
-
-class TrackLength(TrackFeature):
-    &#34;&#34;&#34;Length of track
-    &#34;&#34;&#34;
-
-    name = &#34;track_length&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj[self.coords].diff().dropna(), axis=1
-                ).sum()
-            }
-        )
-
-
-class VelocityAverage(TrackFeature):
-    &#34;&#34;&#34;Average velocity
-    &#34;&#34;&#34;
-
-    name = &#34;velocity_average&#34;
-
-    def compute(self, trj):
-        tl = TrackLength(self.coords, self.frame).compute
-        td = TrackDuration(self.coords, self.frame).compute
-        return pd.Series(
-            {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
-        )
-
-
-class TrackDiameter(TrackFeature):
-    &#34;&#34;&#34;Statistics of the track diameter
-
-    * mean
-    * std
-    * max
-
-    of all pairwise distances of all positions in the track
-    &#34;&#34;&#34;
-
-    name = &#34;track_diameter_stats&#34;
-
-    def compute(self, trj):
-        pw = pairwise_distances(trj[self.coords].values)
-        sf = squareform(pw, checks=False)
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: sf.mean(),
-                f&#34;{self.name}_max&#34;: sf.max(),
-                f&#34;{self.name}_std&#34;: sf.std(),
-            }
-        )
-
-
-def angles_from_displacements(disp_xy):
-    &#34;&#34;&#34;Compute the angle in radians from track displacements
-
-    Args:
-        disp_xy (numpy.array): displacements [n x 2]
-
-    Returns:
-        numpy.array: angle in radioans [n x 1]
-    &#34;&#34;&#34;
-    a = []
-    for i in range(len(disp_xy) - 1):
-        v0 = disp_xy[i, :]
-        v1 = disp_xy[i + 1, :]
-        c = (v0 @ v1) / (np.linalg.norm(v0) * np.linalg.norm(v1) + EPS)
-        ang = np.arccos(np.clip(c, -1, 1))
-
-        a.append(ang)
-    return a
-
-
-class RDP_simplification(TrackFeature):
-    &#34;&#34;&#34;Applies [Ramer–Douglas–Peucker](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) algorithm to simplify the track for given
-    epsilon and extracts:
-
-    * ratio of positions in simplified and original track
-    * mean and std directional change
-    &#34;&#34;&#34;
-
-    name = &#34;rdp_simplification&#34;
-
-    def compute(self, trj, min_trj_len=3, eps=1):
-        trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
-        displ_xy = np.diff(trj_rdp, axis=0)
-        ang = angles_from_displacements(displ_xy)
-
-        if len(ang) &gt; min_trj_len:
-            m = np.mean(ang)
-            s = np.std(ang)
-        else:
-            m, s = 0, 0
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
-                f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
-                f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
-            }
-        )
-
-
-class DirectionalChange(TrackFeature):
-    &#34;&#34;&#34;Compute statistics of the angle between two successive positions
-    &#34;&#34;&#34;
-
-    name = &#34;directional_change_stats&#34;
-
-    def compute(self, trj):
-        disp_xy = trj[self.coords].diff().dropna().values
-
-        a = angles_from_displacements(disp_xy)
-
-        if len(a) &gt; 1:
-            p1 = np.percentile(a, 25)
-            p2 = np.percentile(a, 50)
-            p3 = np.percentile(a, 75)
-        else:
-            p1 = 0
-            p2 = 0
-            p3 = 0
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: np.mean(a),
-                f&#34;{self.name}_std&#34;: np.std(a),
-                f&#34;{self.name}_25_percentile&#34;: p1,
-                f&#34;{self.name}_median&#34;: p2,
-                f&#34;{self.name}_75_percentile&#34;: p3,
-            }
-        )
-
-
-class DirectionalChangeCount(TrackFeature):
-    &#34;&#34;&#34;Count of angles exceeding 20, 45, or 90 degree angle turns
-    &#34;&#34;&#34;
-
-    name = &#34;directional_change_count&#34;
-
-    def compute(self, trj):
-        disp_xy = trj[self.coords].diff().dropna().values
-
-        a = angles_from_displacements(disp_xy)
-
-        res = pd.Series(
-            {
-                f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
-                / len(a)
-                for d in [20, 45, 90]
-            }
-        )
-        return res
-
-
-class PartitionFeature(TrackFeature):
-    &#34;&#34;&#34;Compute features based on spatio-temporal clustering with DBSCAN.
-
-        Track is partitioned by `partition_dbscann` and features of stationary
-        (dwelling) and moving tracklets are computed.
-
-        For the stationary part:
-
-        * partition_dwell_state_count
-        * partition_dwell_state_total_duration
-        * partition_dwell_state_relative_duration
-        * partition_dwell_between_state_duration_mean
-        * partition_dwell_between_state_duration_max
-        * partition_dwell_between_state_length_mean
-        * partition_dwell_between_state_length_max
-
-        For the moving tracklets
-
-        * partition_moving_speed_stats_mean__mean
-        * partition_moving_speed_stats_std__mean
-        * partition_moving_speed_stats_min__mean
-        * partition_moving_speed_stats_max__mean
-        * partition_moving_gyration_tensor_minor_axis_length__mean
-        * partition_moving_gyration_tensor_major_axis_length__mean
-        * partition_moving_gyration_tensor_axis_ratio__mean
-        * partition_moving_gyration_tensor_radius__mean
-        * partition_moving_gyration_tensor_coherence__mean
-        * partition_moving_directional_change_mean__mean
-
-    &#34;&#34;&#34;
-
-    name = &#34;partition&#34;
-
-    def compute(self, trj, eps=6, t_scale=1.0):
-
-        p = trj[self.coords].values
-        t = trj[self.frame].values
-        dt = np.diff(t)
-
-        labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
-
-        from skimage.measure import label
-        from scipy.ndimage.morphology import binary_dilation
-        from skimage.morphology import remove_small_objects
-
-        sub_track_indecies = []
-        unique_labels = set(labels)
-        for u in unique_labels:
-            if u &gt; 0:
-                sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-        sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
-        sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
-        sub_track_center_time = [t[c] for c in sub_track_center_idx]
-
-        if len(unique_labels) &gt; 2:
-            between_times = np.diff(sub_track_center_time)
-            between_dists = np.linalg.norm(
-                np.diff(sub_track_center_pos, axis=0), axis=1
-            )
-
-        else:
-            between_times = 0
-            between_dists = 0
-
-        res = {
-            f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
-            f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
-            f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
-            / dt.sum(),
-            f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
-            f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
-            f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
-            f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
-        }
-
-        labels = labels == 0
-        labels = remove_small_objects(labels, 3)
-        labels = label(labels)
-
-        sub_track_indecies = []
-        unique_labels = set(labels)
-        for u in unique_labels:
-            if u &gt; 0:
-                sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-        sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
-        sub_track_time = [t[sti] for sti in sub_track_indecies]
-
-        sub_trajectoris = [
-            pd.DataFrame(
-                {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
-            )
-            for p, t in zip(sub_track_pos, sub_track_time)
-        ]
-
-        sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
-
-        if len(sub_trajectoris) == 0:
-            sub_trajectoris = [trj]
-
-        SS = SpeedStats(self.coords, self.frame)
-        speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
-        for key, vals in speed_vals.iterrows():
-            res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-        ELF = GyrationTensor(self.coords, self.frame)
-        elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
-
-        for key, vals in elf_vals.iterrows():
-            res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-        # Directonal change
-        dc_vals = np.array(
-            [
-                np.mean(
-                    angles_from_displacements(st[self.coords].diff().dropna().values)
-                )
-                for st in sub_trajectoris
-            ]
-        )
-
-        res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
-
-        return pd.Series(res)
-
-
-def partition_dbscann(p, t, eps, t_scale=1.0):
-    &#34;&#34;&#34;Partition track by spatio-temporal clustering using DBSCAN
-
-    Args:
-        p (numpy.array): xy location
-        t (numpy.array): times
-        eps (float): DBSCAN epsilon
-        t_scale (float, optional): [description]. Defaults to 1.0.
-
-    Returns:
-        numpy.array: DBSCAN label assingment
-    &#34;&#34;&#34;
-    X = np.c_[p, t * t_scale]
-    clustering = DBSCAN(eps).fit(X)
-    labels = clustering.labels_
-
-    return labels
-
-
-def partition_get_moving_part(trj, eps, t_scale, coords, frame):
-    &#34;&#34;&#34;Helper function for visualization
-    &#34;&#34;&#34;
-    p = trj[coords].values
-    t = trj[frame].values
-    dt = np.diff(t)
-
-    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
-
-    from skimage.measure import label
-    from scipy.ndimage.morphology import binary_dilation
-    from skimage.morphology import remove_small_objects
-
-    labels = labels == 0
-    labels = remove_small_objects(labels, 3)
-
-    new_trj = trj[labels]
-    new_trj[frame] = list(range(len(new_trj)))
-
-    return new_trj[coords + [frame]]</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -604,29 +47,6 @@ def partition_get_moving_part(trj, eps, t_scale, coords, frame):
 <dt><code>numpy.array</code></dt>
 <dd>angle in radioans [n x 1]</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def angles_from_displacements(disp_xy):
-    &#34;&#34;&#34;Compute the angle in radians from track displacements
-
-    Args:
-        disp_xy (numpy.array): displacements [n x 2]
-
-    Returns:
-        numpy.array: angle in radioans [n x 1]
-    &#34;&#34;&#34;
-    a = []
-    for i in range(len(disp_xy) - 1):
-        v0 = disp_xy[i, :]
-        v1 = disp_xy[i + 1, :]
-        c = (v0 @ v1) / (np.linalg.norm(v0) * np.linalg.norm(v1) + EPS)
-        ang = np.arccos(np.clip(c, -1, 1))
-
-        a.append(ang)
-    return a</code></pre>
-</details>
 </dd>
 <dt id="trackpal.features.partition_dbscann"><code class="name flex">
 <span>def <span class="ident">partition_dbscann</span></span>(<span>p, t, eps, t_scale=1.0)</span>
@@ -649,59 +69,12 @@ def partition_get_moving_part(trj, eps, t_scale, coords, frame):
 <dt><code>numpy.array</code></dt>
 <dd>DBSCAN label assingment</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def partition_dbscann(p, t, eps, t_scale=1.0):
-    &#34;&#34;&#34;Partition track by spatio-temporal clustering using DBSCAN
-
-    Args:
-        p (numpy.array): xy location
-        t (numpy.array): times
-        eps (float): DBSCAN epsilon
-        t_scale (float, optional): [description]. Defaults to 1.0.
-
-    Returns:
-        numpy.array: DBSCAN label assingment
-    &#34;&#34;&#34;
-    X = np.c_[p, t * t_scale]
-    clustering = DBSCAN(eps).fit(X)
-    labels = clustering.labels_
-
-    return labels</code></pre>
-</details>
 </dd>
 <dt id="trackpal.features.partition_get_moving_part"><code class="name flex">
 <span>def <span class="ident">partition_get_moving_part</span></span>(<span>trj, eps, t_scale, coords, frame)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Helper function for visualization</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def partition_get_moving_part(trj, eps, t_scale, coords, frame):
-    &#34;&#34;&#34;Helper function for visualization
-    &#34;&#34;&#34;
-    p = trj[coords].values
-    t = trj[frame].values
-    dt = np.diff(t)
-
-    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
-
-    from skimage.measure import label
-    from scipy.ndimage.morphology import binary_dilation
-    from skimage.morphology import remove_small_objects
-
-    labels = labels == 0
-    labels = remove_small_objects(labels, 3)
-
-    new_trj = trj[labels]
-    new_trj[frame] = list(range(len(new_trj)))
-
-    return new_trj[coords + [frame]]</code></pre>
-</details>
 </dd>
 </dl>
 </section>
@@ -714,28 +87,7 @@ def partition_get_moving_part(trj, eps, t_scale, coords, frame):
 </code></dt>
 <dd>
 <div class="desc"><p>Compute confinement ration as net distance divided by total distance travelled
-$$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class ConfinementRatio(TrackFeature):
-    &#34;&#34;&#34;Compute confinement ration as net distance divided by total distance travelled
-        $$\\frac{\\|x_n-x_1\\|}{\\sum_{i=1}^n \\|x_i\\|}$$
-    &#34;&#34;&#34;
-
-    name = &#34;confinement_ratio&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
-                )
-                / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
-            }
-        )</code></pre>
-</details>
+<span><span class="MathJax_Preview">\frac{\|x_n-x_1\|}{\sum_{i=1}^n \|x_i\|}</span><script type="math/tex; mode=display">\frac{\|x_n-x_1\|}{\sum_{i=1}^n \|x_i\|}</script></span></p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -754,20 +106,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    return pd.Series(
-        {
-            f&#34;{self.name}&#34;: np.linalg.norm(
-                trj.iloc[-1][self.coords] - trj.iloc[0][self.coords]
-            )
-            / np.linalg.norm(trj[self.coords].diff().dropna(), axis=1).sum()
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -777,40 +115,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Compute statistics of the angle between two successive positions</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class DirectionalChange(TrackFeature):
-    &#34;&#34;&#34;Compute statistics of the angle between two successive positions
-    &#34;&#34;&#34;
-
-    name = &#34;directional_change_stats&#34;
-
-    def compute(self, trj):
-        disp_xy = trj[self.coords].diff().dropna().values
-
-        a = angles_from_displacements(disp_xy)
-
-        if len(a) &gt; 1:
-            p1 = np.percentile(a, 25)
-            p2 = np.percentile(a, 50)
-            p3 = np.percentile(a, 75)
-        else:
-            p1 = 0
-            p2 = 0
-            p3 = 0
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: np.mean(a),
-                f&#34;{self.name}_std&#34;: np.std(a),
-                f&#34;{self.name}_25_percentile&#34;: p1,
-                f&#34;{self.name}_median&#34;: p2,
-                f&#34;{self.name}_75_percentile&#34;: p3,
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -829,34 +133,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    disp_xy = trj[self.coords].diff().dropna().values
-
-    a = angles_from_displacements(disp_xy)
-
-    if len(a) &gt; 1:
-        p1 = np.percentile(a, 25)
-        p2 = np.percentile(a, 50)
-        p3 = np.percentile(a, 75)
-    else:
-        p1 = 0
-        p2 = 0
-        p3 = 0
-
-    return pd.Series(
-        {
-            f&#34;{self.name}_mean&#34;: np.mean(a),
-            f&#34;{self.name}_std&#34;: np.std(a),
-            f&#34;{self.name}_25_percentile&#34;: p1,
-            f&#34;{self.name}_median&#34;: p2,
-            f&#34;{self.name}_75_percentile&#34;: p3,
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -866,30 +142,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Count of angles exceeding 20, 45, or 90 degree angle turns</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class DirectionalChangeCount(TrackFeature):
-    &#34;&#34;&#34;Count of angles exceeding 20, 45, or 90 degree angle turns
-    &#34;&#34;&#34;
-
-    name = &#34;directional_change_count&#34;
-
-    def compute(self, trj):
-        disp_xy = trj[self.coords].diff().dropna().values
-
-        a = angles_from_displacements(disp_xy)
-
-        res = pd.Series(
-            {
-                f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
-                / len(a)
-                for d in [20, 45, 90]
-            }
-        )
-        return res</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -908,24 +160,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    disp_xy = trj[self.coords].diff().dropna().values
-
-    a = angles_from_displacements(disp_xy)
-
-    res = pd.Series(
-        {
-            f&#34;{self.name}_greater_{d}_degree&#34;: (np.array(a) &gt; np.deg2rad(d)).sum()
-            / len(a)
-            for d in [20, 45, 90]
-        }
-    )
-    return res</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -935,36 +169,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Factory class for the creating of <code><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></code></p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class Features:
-    &#34;&#34;&#34;Factory class for the creating of `TrackFeature`
-
-    &#34;&#34;&#34;
-
-    def __init__(self, coords, frame):
-        self.coords = coords
-        self.frame = frame
-
-        self._lookup = {}
-        for klass in TrackFeature.__subclasses__():
-            self._lookup[klass.name] = klass
-
-    def get(self, name):
-        &#34;&#34;&#34;Retrieve track feature by name&#34;&#34;&#34;
-        return self._lookup[name](coords=self.coords, frame=self.frame)
-
-    @staticmethod
-    def list(verbose=False):
-        &#34;&#34;&#34;List names of all available features
-        &#34;&#34;&#34;
-        for klass in sorted(TrackFeature.__subclasses__(), key=lambda k: k.name):
-            print(klass.name)
-            if verbose:
-                print(klass.compute.__doc__)</code></pre>
-</details>
 <h3>Static methods</h3>
 <dl>
 <dt id="trackpal.features.Features.list"><code class="name flex">
@@ -972,19 +176,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |x_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>List names of all available features</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@staticmethod
-def list(verbose=False):
-    &#34;&#34;&#34;List names of all available features
-    &#34;&#34;&#34;
-    for klass in sorted(TrackFeature.__subclasses__(), key=lambda k: k.name):
-        print(klass.name)
-        if verbose:
-            print(klass.compute.__doc__)</code></pre>
-</details>
 </dd>
 </dl>
 <h3>Methods</h3>
@@ -994,14 +185,6 @@ def list(verbose=False):
 </code></dt>
 <dd>
 <div class="desc"><p>Retrieve track feature by name</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def get(self, name):
-    &#34;&#34;&#34;Retrieve track feature by name&#34;&#34;&#34;
-    return self._lookup[name](coords=self.coords, frame=self.frame)</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1014,46 +197,9 @@ def list(verbose=False):
 <ul>
 <li>axis lengths</li>
 <li>axis ratio</li>
-<li>radius (R^2)</li>
+<li>radius <span><span class="MathJax_Preview">R^2</span><script type="math/tex">R^2</script></span></li>
 <li>coherence</li>
 </ul></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class GyrationTensor(TrackFeature):
-    &#34;&#34;&#34;Compute gyration tensor by fitting an ellipse and extraction several measures
-
-    * axis lengths
-    * axis ratio
-    * radius \(R^2\)
-    * coherence
-    &#34;&#34;&#34;
-
-    name = &#34;gyration_tensor&#34;
-
-    def compute(self, trj):
-        p = trj[self.coords].values
-        pc = p - p.mean(0)
-
-        cov = np.cov(pc.T)
-        evals, evecs = np.linalg.eig(cov)
-
-        sort_indices = np.argsort(evals)
-
-        l1 = np.sqrt(evals[sort_indices[0]])
-        l2 = np.sqrt(evals[sort_indices[1]])
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_minor_axis_length&#34;: l1,
-                f&#34;{self.name}_major_axis_length&#34;: l2,
-                f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
-                f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
-                f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1072,32 +218,6 @@ def list(verbose=False):
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    p = trj[self.coords].values
-    pc = p - p.mean(0)
-
-    cov = np.cov(pc.T)
-    evals, evecs = np.linalg.eig(cov)
-
-    sort_indices = np.argsort(evals)
-
-    l1 = np.sqrt(evals[sort_indices[0]])
-    l2 = np.sqrt(evals[sort_indices[1]])
-
-    return pd.Series(
-        {
-            f&#34;{self.name}_minor_axis_length&#34;: l1,
-            f&#34;{self.name}_major_axis_length&#34;: l2,
-            f&#34;{self.name}_axis_ratio&#34;: l1 / (l2 + EPS),
-            f&#34;{self.name}_radius&#34;: l1 ** 2 + l2 ** 2,
-            f&#34;{self.name}_coherence&#34;: ((l2 - l1) / (l2 + l1)) ** 2,
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1107,29 +227,7 @@ def list(verbose=False):
 </code></dt>
 <dd>
 <div class="desc"><p>Fits a parabola to mean squared displacment curve of track and returns
-fit parameters and (R^2)</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class MSDParabola(TrackFeature):
-    &#34;&#34;&#34;Fits a parabola to mean squared displacment curve of track and returns
-    fit parameters and \(R^2\)
-
-    &#34;&#34;&#34;
-
-    name = &#34;msd_parabola&#34;
-
-    def compute(self, trj, clip=0.9, min_trj_len=3):
-        tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
-        d, v2, r2 = 0, 0, 0
-        if len(tau) &gt; min_trj_len:
-            d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
-
-        return pd.Series(
-            {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
-        )</code></pre>
-</details>
+fit parameters and <span><span class="MathJax_Preview"> R^2 </span><script type="math/tex"> R^2 </script></span></p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1148,20 +246,6 @@ fit parameters and (R^2)</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj, clip=0.9, min_trj_len=3):
-    tau, msd_vals = msd.per_track(trj, self.coords, self.frame)
-    d, v2, r2 = 0, 0, 0
-    if len(tau) &gt; min_trj_len:
-        d, v2, r2 = utils.fit_parabola(tau, msd_vals, clip=clip)
-
-    return pd.Series(
-        {f&#34;{self.name}_a&#34;: d, f&#34;{self.name}_b&#34;: v2, f&#34;{self.name}_fit_r2&#34;: r2}
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1171,28 +255,7 @@ fit parameters and (R^2)</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Compute mean straight line speed as net distance divided by total time
-$$\frac{|x_n-x_1|}{\sum_{i=1}^n |\Delta t_i|}$$</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class MeanStraightLineSpeed(TrackFeature):
-    &#34;&#34;&#34;Compute mean straight line speed as net distance divided by total time
-        $$\\frac{\\|x_n-x_1\\|}{\\sum_{i=1}^n \\|\\Delta t_i\\|}$$
-    &#34;&#34;&#34;
-
-    name = &#34;mean_straight_line_speed&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
-                )
-                / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
-            }
-        )</code></pre>
-</details>
+<span><span class="MathJax_Preview">\frac{\|x_n-x_1\|}{\sum_{i=1}^n \|\Delta t_i\|}</span><script type="math/tex; mode=display">\frac{\|x_n-x_1\|}{\sum_{i=1}^n \|\Delta t_i\|}</script></span></p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1211,20 +274,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |\Delta t_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    return pd.Series(
-        {
-            f&#34;{self.name}&#34;: np.linalg.norm(
-                trj.iloc[0][self.coords] - trj.iloc[-1][self.coords]
-            )
-            / (trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1259,136 +308,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |\Delta t_i|}$$</p></div>
 <li>partition_moving_gyration_tensor_coherence__mean</li>
 <li>partition_moving_directional_change_mean__mean</li>
 </ul></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class PartitionFeature(TrackFeature):
-    &#34;&#34;&#34;Compute features based on spatio-temporal clustering with DBSCAN.
-
-        Track is partitioned by `partition_dbscann` and features of stationary
-        (dwelling) and moving tracklets are computed.
-
-        For the stationary part:
-
-        * partition_dwell_state_count
-        * partition_dwell_state_total_duration
-        * partition_dwell_state_relative_duration
-        * partition_dwell_between_state_duration_mean
-        * partition_dwell_between_state_duration_max
-        * partition_dwell_between_state_length_mean
-        * partition_dwell_between_state_length_max
-
-        For the moving tracklets
-
-        * partition_moving_speed_stats_mean__mean
-        * partition_moving_speed_stats_std__mean
-        * partition_moving_speed_stats_min__mean
-        * partition_moving_speed_stats_max__mean
-        * partition_moving_gyration_tensor_minor_axis_length__mean
-        * partition_moving_gyration_tensor_major_axis_length__mean
-        * partition_moving_gyration_tensor_axis_ratio__mean
-        * partition_moving_gyration_tensor_radius__mean
-        * partition_moving_gyration_tensor_coherence__mean
-        * partition_moving_directional_change_mean__mean
-
-    &#34;&#34;&#34;
-
-    name = &#34;partition&#34;
-
-    def compute(self, trj, eps=6, t_scale=1.0):
-
-        p = trj[self.coords].values
-        t = trj[self.frame].values
-        dt = np.diff(t)
-
-        labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
-
-        from skimage.measure import label
-        from scipy.ndimage.morphology import binary_dilation
-        from skimage.morphology import remove_small_objects
-
-        sub_track_indecies = []
-        unique_labels = set(labels)
-        for u in unique_labels:
-            if u &gt; 0:
-                sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-        sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
-        sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
-        sub_track_center_time = [t[c] for c in sub_track_center_idx]
-
-        if len(unique_labels) &gt; 2:
-            between_times = np.diff(sub_track_center_time)
-            between_dists = np.linalg.norm(
-                np.diff(sub_track_center_pos, axis=0), axis=1
-            )
-
-        else:
-            between_times = 0
-            between_dists = 0
-
-        res = {
-            f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
-            f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
-            f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
-            / dt.sum(),
-            f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
-            f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
-            f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
-            f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
-        }
-
-        labels = labels == 0
-        labels = remove_small_objects(labels, 3)
-        labels = label(labels)
-
-        sub_track_indecies = []
-        unique_labels = set(labels)
-        for u in unique_labels:
-            if u &gt; 0:
-                sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-        sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
-        sub_track_time = [t[sti] for sti in sub_track_indecies]
-
-        sub_trajectoris = [
-            pd.DataFrame(
-                {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
-            )
-            for p, t in zip(sub_track_pos, sub_track_time)
-        ]
-
-        sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
-
-        if len(sub_trajectoris) == 0:
-            sub_trajectoris = [trj]
-
-        SS = SpeedStats(self.coords, self.frame)
-        speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
-        for key, vals in speed_vals.iterrows():
-            res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-        ELF = GyrationTensor(self.coords, self.frame)
-        elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
-
-        for key, vals in elf_vals.iterrows():
-            res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-        # Directonal change
-        dc_vals = np.array(
-            [
-                np.mean(
-                    angles_from_displacements(st[self.coords].diff().dropna().values)
-                )
-                for st in sub_trajectoris
-            ]
-        )
-
-        res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
-
-        return pd.Series(res)</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1407,103 +326,6 @@ $$\frac{|x_n-x_1|}{\sum_{i=1}^n |\Delta t_i|}$$</p></div>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj, eps=6, t_scale=1.0):
-
-    p = trj[self.coords].values
-    t = trj[self.frame].values
-    dt = np.diff(t)
-
-    labels = partition_dbscann(p, t, eps, t_scale=t_scale,) + 1
-
-    from skimage.measure import label
-    from scipy.ndimage.morphology import binary_dilation
-    from skimage.morphology import remove_small_objects
-
-    sub_track_indecies = []
-    unique_labels = set(labels)
-    for u in unique_labels:
-        if u &gt; 0:
-            sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-    sub_track_center_idx = [int(sti.mean()) for sti in sub_track_indecies]
-    sub_track_center_pos = [p[c, :] for c in sub_track_center_idx]
-    sub_track_center_time = [t[c] for c in sub_track_center_idx]
-
-    if len(unique_labels) &gt; 2:
-        between_times = np.diff(sub_track_center_time)
-        between_dists = np.linalg.norm(
-            np.diff(sub_track_center_pos, axis=0), axis=1
-        )
-
-    else:
-        between_times = 0
-        between_dists = 0
-
-    res = {
-        f&#34;{self.name}_dwell_state_count&#34;: labels.max(),
-        f&#34;{self.name}_dwell_state_total_duration&#34;: (dt * (labels[1:] &gt; 0)).sum(),
-        f&#34;{self.name}_dwell_state_relative_duration&#34;: (dt * (labels[1:] &gt; 0)).sum()
-        / dt.sum(),
-        f&#34;{self.name}_dwell_between_state_duration_mean&#34;: np.mean(between_times),
-        f&#34;{self.name}_dwell_between_state_duration_max&#34;: np.max(between_times),
-        f&#34;{self.name}_dwell_between_state_length_mean&#34;: np.mean(between_dists),
-        f&#34;{self.name}_dwell_between_state_length_max&#34;: np.max(between_dists),
-    }
-
-    labels = labels == 0
-    labels = remove_small_objects(labels, 3)
-    labels = label(labels)
-
-    sub_track_indecies = []
-    unique_labels = set(labels)
-    for u in unique_labels:
-        if u &gt; 0:
-            sub_track_indecies.append(np.nonzero(labels == u)[0])
-
-    sub_track_pos = [p[sti, :] for sti in sub_track_indecies]
-    sub_track_time = [t[sti] for sti in sub_track_indecies]
-
-    sub_trajectoris = [
-        pd.DataFrame(
-            {self.coords[0]: p[:, 0], self.coords[1]: p[:, 1], self.frame: t}
-        )
-        for p, t in zip(sub_track_pos, sub_track_time)
-    ]
-
-    sub_trajectoris = [st for st in sub_trajectoris if len(st &gt; 3)]
-
-    if len(sub_trajectoris) == 0:
-        sub_trajectoris = [trj]
-
-    SS = SpeedStats(self.coords, self.frame)
-    speed_vals = pd.concat([SS.compute(st) for st in sub_trajectoris], axis=1)
-    for key, vals in speed_vals.iterrows():
-        res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-    ELF = GyrationTensor(self.coords, self.frame)
-    elf_vals = pd.concat([ELF.compute(st) for st in sub_trajectoris], axis=1)
-
-    for key, vals in elf_vals.iterrows():
-        res[f&#34;{self.name}_moving_{key}__mean&#34;] = vals.mean()
-
-    # Directonal change
-    dc_vals = np.array(
-        [
-            np.mean(
-                angles_from_displacements(st[self.coords].diff().dropna().values)
-            )
-            for st in sub_trajectoris
-        ]
-    )
-
-    res[f&#34;{self.name}__directional_change_mean__mean&#34;] = dc_vals.mean()
-
-    return pd.Series(res)</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1518,39 +340,6 @@ epsilon and extracts:</p>
 <li>ratio of positions in simplified and original track</li>
 <li>mean and std directional change</li>
 </ul></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class RDP_simplification(TrackFeature):
-    &#34;&#34;&#34;Applies [Ramer–Douglas–Peucker](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm) algorithm to simplify the track for given
-    epsilon and extracts:
-
-    * ratio of positions in simplified and original track
-    * mean and std directional change
-    &#34;&#34;&#34;
-
-    name = &#34;rdp_simplification&#34;
-
-    def compute(self, trj, min_trj_len=3, eps=1):
-        trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
-        displ_xy = np.diff(trj_rdp, axis=0)
-        ang = angles_from_displacements(displ_xy)
-
-        if len(ang) &gt; min_trj_len:
-            m = np.mean(ang)
-            s = np.std(ang)
-        else:
-            m, s = 0, 0
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
-                f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
-                f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1569,29 +358,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj, min_trj_len=3, eps=1):
-    trj_rdp = rdp(trj[self.coords].values, epsilon=eps)
-    displ_xy = np.diff(trj_rdp, axis=0)
-    ang = angles_from_displacements(displ_xy)
-
-    if len(ang) &gt; min_trj_len:
-        m = np.mean(ang)
-        s = np.std(ang)
-    else:
-        m, s = 0, 0
-
-    return pd.Series(
-        {
-            f&#34;{self.name}_ratio_{eps}&#34;: len(trj_rdp) / len(trj),
-            f&#34;{self.name}_directional_change_mean_{eps}&#34;: m,
-            f&#34;{self.name}_directional_change_std_{eps}&#34;: s,
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1607,44 +373,6 @@ epsilon and extracts:</p>
 <li>min</li>
 <li>max</li>
 </ul></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class SpeedStats(TrackFeature):
-    &#34;&#34;&#34;Compute several statistics of the instantaneous speed
-
-        * mean
-        * std
-        * min
-        * max
-    &#34;&#34;&#34;
-
-    name = &#34;speed_stats&#34;
-
-    def compute(self, trj, min_trj_len=2):
-
-        displacements = velocity.displacement(trj, self.coords, self.frame)
-
-        speeds = (
-            np.linalg.norm(displacements[self.coords], axis=1)
-            / trj[self.frame].diff().dropna()
-        )
-
-        if len(speeds) &gt;= min_trj_len:
-            speed_std = speeds.std()
-        else:
-            speed_std = -1
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: speeds.mean(),
-                f&#34;{self.name}_std&#34;: speed_std,
-                f&#34;{self.name}_min&#34;: speeds.min(),
-                f&#34;{self.name}_max&#34;: speeds.max(),
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1663,33 +391,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj, min_trj_len=2):
-
-    displacements = velocity.displacement(trj, self.coords, self.frame)
-
-    speeds = (
-        np.linalg.norm(displacements[self.coords], axis=1)
-        / trj[self.frame].diff().dropna()
-    )
-
-    if len(speeds) &gt;= min_trj_len:
-        speed_std = speeds.std()
-    else:
-        speed_std = -1
-
-    return pd.Series(
-        {
-            f&#34;{self.name}_mean&#34;: speeds.mean(),
-            f&#34;{self.name}_std&#34;: speed_std,
-            f&#34;{self.name}_min&#34;: speeds.min(),
-            f&#34;{self.name}_max&#34;: speeds.max(),
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1705,34 +406,6 @@ epsilon and extracts:</p>
 <li>max</li>
 </ul>
 <p>of all pairwise distances of all positions in the track</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class TrackDiameter(TrackFeature):
-    &#34;&#34;&#34;Statistics of the track diameter
-
-    * mean
-    * std
-    * max
-
-    of all pairwise distances of all positions in the track
-    &#34;&#34;&#34;
-
-    name = &#34;track_diameter_stats&#34;
-
-    def compute(self, trj):
-        pw = pairwise_distances(trj[self.coords].values)
-        sf = squareform(pw, checks=False)
-
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: sf.mean(),
-                f&#34;{self.name}_max&#34;: sf.max(),
-                f&#34;{self.name}_std&#34;: sf.std(),
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1751,22 +424,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    pw = pairwise_distances(trj[self.coords].values)
-    sf = squareform(pw, checks=False)
-
-    return pd.Series(
-        {
-            f&#34;{self.name}_mean&#34;: sf.mean(),
-            f&#34;{self.name}_max&#34;: sf.max(),
-            f&#34;{self.name}_std&#34;: sf.std(),
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1776,21 +433,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Duration of track</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class TrackDuration(TrackFeature):
-    &#34;&#34;&#34;Duration of track
-    &#34;&#34;&#34;
-
-    name = &#34;track_duration&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1809,15 +451,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    return pd.Series(
-        {f&#34;{self.name}&#34;: (1 + trj.iloc[-1][self.frame] - trj.iloc[0][self.frame])}
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1827,19 +460,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Base class for all track features</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class TrackFeature:
-    &#34;&#34;&#34;Base class for all track features
-
-    &#34;&#34;&#34;
-
-    def __init__(self, coords, frame):
-        self.coords = coords
-        self.frame = frame</code></pre>
-</details>
 <h3>Subclasses</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.ConfinementRatio" href="#trackpal.features.ConfinementRatio">ConfinementRatio</a></li>
@@ -1864,25 +484,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Length of track</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class TrackLength(TrackFeature):
-    &#34;&#34;&#34;Length of track
-    &#34;&#34;&#34;
-
-    name = &#34;track_length&#34;
-
-    def compute(self, trj):
-        return pd.Series(
-            {
-                f&#34;{self.name}&#34;: np.linalg.norm(
-                    trj[self.coords].diff().dropna(), axis=1
-                ).sum()
-            }
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1901,19 +502,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    return pd.Series(
-        {
-            f&#34;{self.name}&#34;: np.linalg.norm(
-                trj[self.coords].diff().dropna(), axis=1
-            ).sum()
-        }
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -1929,50 +517,7 @@ epsilon and extracts:</p>
 <li>min</li>
 <li>max</li>
 </ul>
-<p>of the curve for delays ( &gt; 0)</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class VACstats(TrackFeature):
-    &#34;&#34;&#34;Computes velocity autocorrelation and returns statistics
-
-    * mean
-    * std
-    * min
-    * max
-
-    of the curve for delays \( &gt; 0\)
-
-    &#34;&#34;&#34;
-
-    name = &#34;vac_stats&#34;
-
-    def compute(self, trj, min_trj_len=3):
-        displacements = velocity.compute_velocities(trj, self.coords, self.frame)
-        tau, vac_vals = velocity.velocity_autocorr_pre_track(
-            displacements, self.coords, self.frame
-        )
-
-        if len(tau) &gt; min_trj_len:
-            return pd.Series(
-                {
-                    f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
-                    f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
-                    f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
-                    f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
-                }
-            )
-        else:
-            return pd.Series(
-                {
-                    f&#34;{self.name}_mean&#34;: 0,
-                    f&#34;{self.name}_std&#34;: 0,
-                    f&#34;{self.name}_min&#34;: 0,
-                    f&#34;{self.name}_max&#34;: 0,
-                }
-            )</code></pre>
-</details>
+<p>of the curve for delays <span><span class="MathJax_Preview"> &gt; 0</span><script type="math/tex"> > 0</script></span></p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -1991,35 +536,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj, min_trj_len=3):
-    displacements = velocity.compute_velocities(trj, self.coords, self.frame)
-    tau, vac_vals = velocity.velocity_autocorr_pre_track(
-        displacements, self.coords, self.frame
-    )
-
-    if len(tau) &gt; min_trj_len:
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: vac_vals[1:].mean(),
-                f&#34;{self.name}_std&#34;: vac_vals[1:].std(),
-                f&#34;{self.name}_min&#34;: vac_vals[2:].min(),
-                f&#34;{self.name}_max&#34;: vac_vals[2:].max(),
-            }
-        )
-    else:
-        return pd.Series(
-            {
-                f&#34;{self.name}_mean&#34;: 0,
-                f&#34;{self.name}_std&#34;: 0,
-                f&#34;{self.name}_min&#34;: 0,
-                f&#34;{self.name}_max&#34;: 0,
-            }
-        )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
@@ -2029,23 +545,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Average velocity</p></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">class VelocityAverage(TrackFeature):
-    &#34;&#34;&#34;Average velocity
-    &#34;&#34;&#34;
-
-    name = &#34;velocity_average&#34;
-
-    def compute(self, trj):
-        tl = TrackLength(self.coords, self.frame).compute
-        td = TrackDuration(self.coords, self.frame).compute
-        return pd.Series(
-            {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
-        )</code></pre>
-</details>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="trackpal.features.TrackFeature" href="#trackpal.features.TrackFeature">TrackFeature</a></li>
@@ -2064,17 +563,6 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def compute(self, trj):
-    tl = TrackLength(self.coords, self.frame).compute
-    td = TrackDuration(self.coords, self.frame).compute
-    return pd.Series(
-        {&#34;velocity_average&#34;: tl(trj).track_length / td(trj).track_duration}
-    )</code></pre>
-</details>
 </dd>
 </dl>
 </dd>
