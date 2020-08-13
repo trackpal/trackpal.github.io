@@ -48,34 +48,6 @@
 <dd>angle in radioans [n x 1]</dd>
 </dl></div>
 </dd>
-<dt id="trackpal.features.partition_dbscann"><code class="name flex">
-<span>def <span class="ident">partition_dbscann</span></span>(<span>p, t, eps, t_scale=1.0)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Partition track by spatio-temporal clustering using DBSCAN</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>p</code></strong> :&ensp;<code>numpy.array</code></dt>
-<dd>xy location</dd>
-<dt><strong><code>t</code></strong> :&ensp;<code>numpy.array</code></dt>
-<dd>times</dd>
-<dt><strong><code>eps</code></strong> :&ensp;<code>float</code></dt>
-<dd>DBSCAN epsilon</dd>
-<dt><strong><code>t_scale</code></strong> :&ensp;<code>float</code>, optional</dt>
-<dd>[description]. Defaults to 1.0.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>numpy.array</code></dt>
-<dd>DBSCAN label assingment</dd>
-</dl></div>
-</dd>
-<dt id="trackpal.features.partition_get_moving_part"><code class="name flex">
-<span>def <span class="ident">partition_get_moving_part</span></span>(<span>trj, eps, t_scale, coords, frame)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Helper function for visualization</p></div>
-</dd>
 </dl>
 </section>
 <section>
@@ -226,7 +198,7 @@
 <span>(</span><span>coords, frame)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Fits a parabola to mean squared displacment curve of track and returns
+<div class="desc"><p>Fits a parabola to mean squared displacement curve of track and returns
 fit parameters and <span><span class="MathJax_Preview"> R^2 </span><script type="math/tex"> R^2 </script></span></p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -283,7 +255,7 @@ fit parameters and <span><span class="MathJax_Preview"> R^2 </span><script type=
 </code></dt>
 <dd>
 <div class="desc"><p>Compute features based on spatio-temporal clustering with DBSCAN.</p>
-<p>Track is partitioned by <code><a title="trackpal.features.partition_dbscann" href="#trackpal.features.partition_dbscann">partition_dbscann()</a></code> and features of stationary
+<p>Track is partitioned by <code>partition_dbscann</code> and features of stationary
 (dwelling) and moving tracklets are computed.</p>
 <p>For the stationary part:</p>
 <ul>
@@ -317,6 +289,69 @@ fit parameters and <span><span class="MathJax_Preview"> R^2 </span><script type=
 <dt id="trackpal.features.PartitionFeature.name"><code class="name">var <span class="ident">name</span></code></dt>
 <dd>
 <div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="trackpal.features.PartitionFeature.dwell_centroid_idx"><code class="name flex">
+<span>def <span class="ident">dwell_centroid_idx</span></span>(<span>labels)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Track indicies of dwell sub tracks</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>labels</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>labels from dbscann</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[np.array]</code></dt>
+<dd>List of sub-track indicies</dd>
+</dl></div>
+</dd>
+<dt id="trackpal.features.PartitionFeature.moving_sub_tracks"><code class="name flex">
+<span>def <span class="ident">moving_sub_tracks</span></span>(<span>trj, labels, coords, frame, minimum_size=3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the moving tracklets of given track and labels</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>trj</code></strong> :&ensp;<code>pandas.DataFrame</code></dt>
+<dd>The track</dd>
+<dt><strong><code>labels</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>labels from dbscann</dd>
+<dt><strong><code>coords</code></strong> :&ensp;<code>list[str]</code></dt>
+<dd>xy identifiers</dd>
+<dt><strong><code>frame</code></strong> :&ensp;<code>str</code></dt>
+<dd>frame identifier</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[pandas.DataFrame]</code></dt>
+<dd>List of moving subtracks</dd>
+</dl></div>
+</dd>
+<dt id="trackpal.features.PartitionFeature.partition_dbscann"><code class="name flex">
+<span>def <span class="ident">partition_dbscann</span></span>(<span>p, t, eps, t_scale=1.0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Partition track by spatio-temporal clustering using DBSCAN</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>p</code></strong> :&ensp;<code>numpy.array</code></dt>
+<dd>xy location</dd>
+<dt><strong><code>t</code></strong> :&ensp;<code>numpy.array</code></dt>
+<dd>times</dd>
+<dt><strong><code>eps</code></strong> :&ensp;<code>float</code></dt>
+<dd>DBSCAN epsilon</dd>
+<dt><strong><code>t_scale</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>[description]. Defaults to 1.0.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>numpy.array</code></dt>
+<dd>DBSCAN label assingment</dd>
+</dl></div>
 </dd>
 </dl>
 <h3>Methods</h3>
@@ -367,6 +402,7 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Compute several statistics of the instantaneous speed</p>
+<h2 id="satistics">Satistics</h2>
 <ul>
 <li>mean</li>
 <li>std</li>
@@ -511,6 +547,7 @@ epsilon and extracts:</p>
 </code></dt>
 <dd>
 <div class="desc"><p>Computes velocity autocorrelation and returns statistics</p>
+<h2 id="satistics">Satistics</h2>
 <ul>
 <li>mean</li>
 <li>std</li>
@@ -583,8 +620,6 @@ epsilon and extracts:</p>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="trackpal.features.angles_from_displacements" href="#trackpal.features.angles_from_displacements">angles_from_displacements</a></code></li>
-<li><code><a title="trackpal.features.partition_dbscann" href="#trackpal.features.partition_dbscann">partition_dbscann</a></code></li>
-<li><code><a title="trackpal.features.partition_get_moving_part" href="#trackpal.features.partition_get_moving_part">partition_get_moving_part</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
@@ -642,7 +677,10 @@ epsilon and extracts:</p>
 <h4><code><a title="trackpal.features.PartitionFeature" href="#trackpal.features.PartitionFeature">PartitionFeature</a></code></h4>
 <ul class="">
 <li><code><a title="trackpal.features.PartitionFeature.compute" href="#trackpal.features.PartitionFeature.compute">compute</a></code></li>
+<li><code><a title="trackpal.features.PartitionFeature.dwell_centroid_idx" href="#trackpal.features.PartitionFeature.dwell_centroid_idx">dwell_centroid_idx</a></code></li>
+<li><code><a title="trackpal.features.PartitionFeature.moving_sub_tracks" href="#trackpal.features.PartitionFeature.moving_sub_tracks">moving_sub_tracks</a></code></li>
 <li><code><a title="trackpal.features.PartitionFeature.name" href="#trackpal.features.PartitionFeature.name">name</a></code></li>
+<li><code><a title="trackpal.features.PartitionFeature.partition_dbscann" href="#trackpal.features.PartitionFeature.partition_dbscann">partition_dbscann</a></code></li>
 </ul>
 </li>
 <li>

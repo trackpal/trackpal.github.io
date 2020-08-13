@@ -25,64 +25,66 @@
 <section id="section-intro">
 <h1 id="trackpal-tracking-python-analyzer">TrackPal: Tracking Python AnaLyzer</h1>
 <p>A modular library for the analysis of object trackings in Python with pandas.</p>
-<h2 id="installation">Installation</h2>
-<p><a href="https://git.ist.ac.at/csommer/trackpal/">on github</a></p>
 <h2 id="overview">Overview</h2>
-<h3 id="track-representation">Track representation</h3>
-<p>Tracks are represented as a (stacked) pandas DataFrame with a minium of 5 columns for:</p>
+<h3 id="main-features">Main features</h3>
 <ul>
-<li>TrackID</li>
-<li>FrameID</li>
-<li>Position for X and Y coordinates</li>
-<li>TimeID</li>
+<li>Read Imaris / TrackMate files</li>
+<li>Simulate tracks with different motion types</li>
+<li>Compute track feature descriptors (~50 available features)</li>
+<li>Mean squared displacement curves for single tracks and ensembles</li>
+<li>Velocity autocorrelation curves for single tracks and ensembles</li>
+<li>Visualization utilities</li>
 </ul>
-<p>Each track must have an unique TrackID.</p>
-<p>More columns can be added to store additional information.</p>
-<p>A loaded or a simulated data set contains an attribute <code>id</code> which holds the
-identifiers to access the columns.</p>
-<p>The default identifiers are:</p>
-<ul>
-<li>TrackID: <code>"track"</code></li>
-<li>FrameID: <code>"frame"</code></li>
-<li>Position for X and Y coordinates: <code>"xy"</code></li>
-<li>TimeID <code>"time"</code></li>
-</ul>
-<h3 id="general">General</h3>
 <p>For most computations trackpal relies on pandas <code>groupby</code> and <code>apply</code> mechanism.</p>
 <p><code>TrackPal</code> does not track or link objects. It analyzes already tracked objects.
 For obtaining object trackings from images or detections see for instance the
 excellent projects <a href="https://imagej.net/TrackMate">TrackMate</a>,
 <a href="http://soft-matter.github.io/trackpy">trackpy</a> or <a href="ilastik.org">ilastik</a></p>
-<h2 id="examples">Examples:</h2>
-<h3 id="simulate-tracks">Simulate tracks</h3>
-<p>The following types of tracks are supported:</p>
-<ul>
-<li>brownian motion (Gaussian random walk)</li>
-<li>linear motion</li>
-<li>mixed brownian and linear</li>
-<li>saltatory motion</li>
-</ul>
-<p>Examples:</p>
+<h2 id="examples">Examples</h2>
 <pre><code class="python">import trackpal as tp
 
 trj = tp.simulate.brownian_linear(n_tracks=10)
 
-# plot as lines
-trj.groupby(trj.trackid).apply(
-    tp.visu.plot_trj, coords=trj.xy, line_fmt=&quot;.-&quot;,
+trj.groupby(&quot;TrackID&quot;).apply(
+    tp.visu.plot_trj, coords=[&quot;Position X&quot;, &quot;Position Y&quot;], line_fmt=&quot;.-&quot;,
 )
 </code></pre>
 <p>Output:
-<img alt="" src="https://git.ist.ac.at/csommer/trackpal/-/raw/master/doc/img/bl_tracks_01.png" title="Output"></p>
+<img alt="Output" src="doc/img/bl_tracks_01.png"></p>
 <h3 id="track-features">Track features</h3>
 <ul>
-<li>Simulate different motion types and compute track feautres<ul>
-<li><a href="https://git.ist.ac.at/csommer/trackpal/-/blob/master/examples/01_track_features.ipynb">notebook</a></li>
+<li>Simulate different motion types and compute track feautures<ul>
+<li><a href="examples/01_track_features.ipynb">Features</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="source-code-and-issue-tracker">Source code and issue tracker:</h2>
-<p><a href="https://git.ist.ac.at/csommer/trackpal/">on github</a></p>
+<h3 id="mean-squared-displacement-curves">Mean squared displacement curves</h3>
+<ul>
+<li>Calculate diffusion constant and velocity from different simulated motion types<ul>
+<li><a href="examples/02_mean_square_displacement_curves.ipynb">MSD</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Install Anaconda Python (&gt;=3.6) and create new environment</li>
+</ol>
+<p>From PyPi:</p>
+<ol>
+<li><code>pip install TrackPal</code></li>
+</ol>
+<p>For development</p>
+<ol>
+<li><code>git clone</code> this repostiory</li>
+<li><code>cd <a title="trackpal" href="#trackpal">trackpal</a></code></li>
+<li><code>pip install -e .</code></li>
+</ol>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="https://github.com/sommerc/trackpal">GitHub mirror</a></li>
+<li><a href="https://git.ist.ac.at/csommer/trackpal">GitLab IST</a></li>
+<li><a href="https://trackpal.github.io/trackpal">API documentation</a></li>
+</ul>
 </section>
 <section>
 <h2 class="section-title" id="header-submodules">Sub-modules</h2>
@@ -143,13 +145,13 @@ trj.groupby(trj.trackid).apply(
 <dl>
 <dt><strong><code>trj_list</code></strong> :&ensp;<code>list[pandas.DataFrame]</code></dt>
 <dd>List of tracks to concatenate</dd>
-<dt><strong><code>trackid</code></strong> :&ensp;<code>str</code>, optional</dt>
-<dd>trackid column identifier. Defaults to None.</dd>
+<dt><strong><code>trackid</code></strong> :&ensp;<code>str</code></dt>
+<dd>trackid column identifier</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>pandas.DataFrame</code></dt>
-<dd>Concatenated DataFrame with unqiue track ids</dd>
+<dd>Concatenated DataFrame with unique track ids</dd>
 </dl></div>
 </dd>
 </dl>
@@ -162,18 +164,17 @@ trj.groupby(trj.trackid).apply(
 <div class="toc">
 <ul>
 <li><a href="#trackpal-tracking-python-analyzer">TrackPal: Tracking Python AnaLyzer</a><ul>
-<li><a href="#installation">Installation</a></li>
 <li><a href="#overview">Overview</a><ul>
-<li><a href="#track-representation">Track representation</a></li>
-<li><a href="#general">General</a></li>
+<li><a href="#main-features">Main features</a></li>
 </ul>
 </li>
-<li><a href="#examples">Examples:</a><ul>
-<li><a href="#simulate-tracks">Simulate tracks</a></li>
+<li><a href="#examples">Examples</a><ul>
 <li><a href="#track-features">Track features</a></li>
+<li><a href="#mean-squared-displacement-curves">Mean squared displacement curves</a></li>
 </ul>
 </li>
-<li><a href="#source-code-and-issue-tracker">Source code and issue tracker:</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#documentation">Documentation</a></li>
 </ul>
 </li>
 </ul>
