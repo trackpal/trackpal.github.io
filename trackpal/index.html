@@ -35,12 +35,13 @@
 <li>Velocity autocorrelation curves for single tracks and ensembles</li>
 <li>Visualization utilities</li>
 </ul>
-<p>For most computations trackpal relies on pandas <code>groupby</code> and <code>apply</code> mechanism.</p>
-<p><code>TrackPal</code> does not track or link objects. It analyzes already tracked objects.
+<p>For most computations TrackPal relies on pandas <code>groupby</code> and <code>apply</code> mechanism.</p>
+<p>TrackPal does not track or link objects. It analyzes already tracked objects.
 For obtaining object trackings from images or detections see for instance the
 excellent projects <a href="https://imagej.net/TrackMate">TrackMate</a>,
 <a href="http://soft-matter.github.io/trackpy">trackpy</a> or <a href="ilastik.org">ilastik</a></p>
 <h2 id="examples">Examples</h2>
+<h4 id="simple-simulation-and-plotting">Simple simulation and plotting</h4>
 <pre><code class="python">import trackpal as tp
 
 trj = tp.simulate.brownian_linear(n_tracks=10)
@@ -51,14 +52,14 @@ trj.groupby(&quot;TrackID&quot;).apply(
 </code></pre>
 <p>Output:
 <img alt="Output" src="doc/img/bl_tracks_01.png"></p>
-<h3 id="track-features">Track features</h3>
+<h4 id="track-features">Track features</h4>
 <ul>
 <li>Simulate different motion types and compute track feautures<ul>
 <li><a href="examples/01_track_features.ipynb">Features</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="mean-squared-displacement-curves">Mean squared displacement curves</h3>
+<h4 id="mean-squared-displacement-curves">Mean squared displacement curves</h4>
 <ul>
 <li>Calculate diffusion constant and velocity from different simulated motion types<ul>
 <li><a href="examples/02_mean_square_displacement_curves.ipynb">MSD</a></li>
@@ -66,16 +67,34 @@ trj.groupby(&quot;TrackID&quot;).apply(
 </li>
 </ul>
 <h2 id="installation">Installation</h2>
+<p>Anaconda Python (&gt;=3.6) and a new environment are recommended</p>
 <ol>
-<li>Install Anaconda Python (&gt;=3.6) and create new environment</li>
+<li>Install Anaconda Python (&gt;=3.6)</li>
 </ol>
-<p>From PyPi:</p>
+<pre><code class="shell">conda create --name trackpal_env --python=3.7
+conda activate trackpal_env
+</code></pre>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>numpy</li>
+<li>pandas</li>
+<li>scikit_image</li>
+<li>scikit_learn</li>
+<li>tifffile</li>
+<li>tqdm</li>
+<li>scipy</li>
+<li>statsmodels</li>
+<li>matplotlib</li>
+<li>rdp</li>
+<li>tqdm</li>
+</ul>
+<h4 id="from-pypi">From PyPi:</h4>
 <ol>
 <li><code>pip install TrackPal</code></li>
 </ol>
-<p>For development</p>
+<h4 id="for-development">For development</h4>
 <ol>
-<li><code>git clone</code> this repostiory</li>
+<li><code>git clone</code> this repository</li>
 <li><code>cd <a title="trackpal" href="#trackpal">trackpal</a></code></li>
 <li><code>pip install -e .</code></li>
 </ol>
@@ -169,11 +188,17 @@ trj.groupby(&quot;TrackID&quot;).apply(
 </ul>
 </li>
 <li><a href="#examples">Examples</a><ul>
+<li><a href="#simple-simulation-and-plotting">Simple simulation and plotting</a></li>
 <li><a href="#track-features">Track features</a></li>
 <li><a href="#mean-squared-displacement-curves">Mean squared displacement curves</a></li>
 </ul>
 </li>
 <li><a href="#installation">Installation</a></li>
+<li><a href="#dependencies">Dependencies</a><ul>
+<li><a href="#from-pypi">From PyPi:</a></li>
+<li><a href="#for-development">For development</a></li>
+</ul>
+</li>
 <li><a href="#documentation">Documentation</a></li>
 </ul>
 </li>
